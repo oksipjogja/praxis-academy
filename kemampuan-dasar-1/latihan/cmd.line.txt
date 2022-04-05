@@ -1,0 +1,244 @@
+﻿donie@donie-ThinkPad-T430:~$ ls
+2        dir3       Music           Public       sample     Videos
+Desktop  Documents  Pictures        respository  Templates
+dir      Downloads  praxis-academy  rm           test1
+donie@donie-ThinkPad-T430:~$ ls -R
+.:
+2        dir3       Music           Public       sample     Videos
+Desktop  Documents  Pictures        respository  Templates
+dir      Downloads  praxis-academy  rm           test1
+
+./2:
+
+./Desktop:
+code.desktop
+
+./dir:
+dir1
+
+./dir/dir1:
+
+./dir3:
+
+./Documents:
+praxis-academy  sample2
+
+./Documents/praxis-academy:
+kemampuan-dasar-1
+
+./Documents/praxis-academy/kemampuan-dasar-1:
+latihan
+
+./Documents/praxis-academy/kemampuan-dasar-1/latihan:
+env.txt  grub.txt  kernel-linux.txt
+
+./Downloads:
+code_1.66.0-1648620611_amd64.deb  LibreOffice_7.3.2_Linux_x86-64_deb.tar.gz
+git-2.35.1.tar.gz                 Python-3.10.4.tar.xz
+
+./Music:
+
+./Pictures:
+ kernel-linux.png
+'linux kernel diagram.png'
+'Screenshot from 2022-04-05 09-08-28.png'
+'Screenshot from 2022-04-05 09-23-38.png'
+'Screenshot from 2022-04-05 09-31-35.png'
+'Screenshot from 2022-04-05 11-19-38.png'
+
+./praxis-academy:
+README.md
+
+./Public:
+
+./respository:
+ arsenic-main   arsenic-main.zip  'arsenic master'
+
+./respository/arsenic-main:
+appveyor.yml  docs     pyproject.toml  README.md  tests
+CHANGELOG.md  LICENSE  pytest.ini      src
+
+./respository/arsenic-main/docs:
+conf.py      howto      make.bat  reference
+development  index.rst  Makefile  tutorials
+
+./respository/arsenic-main/docs/development:
+testing.rst
+
+./respository/arsenic-main/docs/howto:
+action_chains.py  action_chains.rst  pytest.rst  test_pytest.py  windows.rst
+
+./respository/arsenic-main/docs/reference:
+actions.rst     errors.rst  keys.rst      supported-browsers.rst
+browsers.rst    http.rst    services.rst  utils.rst
+connection.rst  index.rst   session.rst   webdriver.rst
+
+./respository/arsenic-main/docs/tutorials:
+helloworld.py  helloworld.rst
+
+./respository/arsenic-main/src:
+arsenic
+
+./respository/arsenic-main/src/arsenic:
+actions.py     constants.py  http.py      services.py    utils.py
+browsers.py    errors.py     __init__.py  session.py     webdriver.py
+connection.py  helpers.py    keys.py      subprocess.py
+
+./respository/arsenic-main/tests:
+app.py       templates           test_real_browsers.py  test_utils.py
+conftest.py  test_actions.py     test_services.py       utils.py
+__init__.py  test_docs_build.py  test_subprocess.py
+
+./respository/arsenic-main/tests/templates:
+actions.html  file_data.html  form.html   js.html          selector_types.html
+data.html     file_form.html  index.html  screenshot.html
+
+'./respository/arsenic master':
+config.yml
+
+./rm:
+
+./Templates:
+
+./Videos:
+donie@donie-ThinkPad-T430:~$ ls -al
+total 192
+drwxr-xr-x 28 donie donie  4096 Apr  5 13:38 .
+drwxr-xr-x  4 root  root   4096 Apr  5 13:37 ..
+drwxrwxr-x  2 donie donie  4096 Apr  5 13:26 2
+-rw-------  1 donie donie  2836 Apr  5 12:14 .bash_history
+-rw-r--r--  1 donie donie   220 Apr  5 01:17 .bash_logout
+-rw-r--r--  1 donie donie  3771 Apr  5 01:17 .bashrc
+drwx------ 14 donie donie  4096 Apr  5 13:39 .cache
+drwxrwxr-x  4 donie donie  4096 Apr  5 08:23 .cinnamon
+drwxr-xr-x 21 donie donie  4096 Apr  5 13:39 .config
+drwxr-xr-x  2 donie donie  4096 Apr  4 15:08 Desktop
+drwxrwxr-x  3 donie donie  4096 Apr  5 13:27 dir
+drwxrwxr-x  2 donie donie  4096 Apr  5 13:26 dir3
+-rw-r--r--  1 donie donie    27 Apr  5 07:12 .dmrc
+drwxr-xr-x  3 donie donie  4096 Apr  5 13:17 Documents
+drwxr-xr-x  2 donie donie  4096 Apr  5 12:10 Downloads
+drwxrwxr-x  7 donie donie  4096 Apr  5 05:37 .git
+-rw-rw-r--  1 donie donie    56 Apr  5 05:34 .gitconfig
+drwx------  3 donie donie  4096 Apr  5 08:22 .gnupg
+-rw-r--r--  1 donie donie    22 Apr  5 01:17 .gtkrc-2.0
+-rw-r--r--  1 donie donie   516 Apr  5 01:17 .gtkrc-xfce
+drwxr--r--  2 donie donie  4096 Apr  4 19:00 .hardinfo
+drwxrwxr-x  4 donie donie  4096 Apr  4 12:39 .linuxmint
+drwxrwxr-x  3 donie donie  4096 Apr  5 08:22 .local
+drwx------  4 donie donie  4096 Apr  5 08:24 .mozilla
+drwxr-xr-x  2 donie donie  4096 Apr  5 08:22 Music
+drwxr-xr-x  2 donie donie  4096 Apr  5 11:20 Pictures
+drwx------  3 donie donie  4096 Apr  4 15:08 .pki
+drwxrwxr-x  3 donie donie  4096 Apr  5 05:12 praxis-academy
+-rw-r--r--  1 donie donie   807 Apr  5 01:17 .profile
+drwxr-xr-x  2 donie donie  4096 Apr  5 08:22 Public
+drwxrwxr-x  5 donie donie  4096 Apr  5 05:51 respository
+drwxrwxr-x  2 donie donie  4096 Apr  5 13:21 rm
+-rw-rw-r--  1 donie donie    15 Apr  5 13:28 sample
+-rw-------  1 donie donie 12288 Apr  5 13:38 .scripsample.sh.swp
+-rw-r--r--  1 donie donie     0 Apr  4 12:39 .sudo_as_admin_successful
+drwxr-xr-x  2 donie donie  4096 Apr  5 08:22 Templates
+-rw-rw-r--  1 donie donie    13 Apr  5 13:23 test1
+drwxr-xr-x  2 donie donie  4096 Apr  5 08:23 .themes
+drwxr-xr-x  2 donie donie  4096 Apr  5 08:22 Videos
+drwxrwxr-x  3 donie donie  4096 Apr  4 15:08 .vscode
+-rw-------  1 donie donie    64 Apr  5 11:12 .Xauthority
+-rw-------  1 donie donie  8848 Apr  5 13:00 .xsession-errors
+-rw-------  1 donie donie  9814 Apr  5 11:11 .xsession-errors.old
+donie@donie-ThinkPad-T430:~$ ls-a
+ls-a: command not found
+donie@donie-ThinkPad-T430:~$ ls -a
+.              dir3         .local          .scripsample.sh.swp
+..             .dmrc        .mozilla        .sudo_as_admin_successful
+2              Documents    Music           Templates
+.bash_history  Downloads    Pictures        test1
+.bash_logout   .git         .pki            .themes
+.bashrc        .gitconfig   praxis-academy  Videos
+.cache         .gnupg       .profile        .vscode
+.cinnamon      .gtkrc-2.0   Public          .Xauthority
+.config        .gtkrc-xfce  respository     .xsession-errors
+Desktop        .hardinfo    rm              .xsession-errors.old
+dir            .linuxmint   sample
+donie@donie-ThinkPad-T430:~$ cat > sample1
+This is sample1
+donie@donie-ThinkPad-T430:~$ cat sample1
+This is sample1
+donie@donie-ThinkPad-T430:~$ cat > sample2
+This is sample2
+donie@donie-ThinkPad-T430:~$ cat sample2
+This is sample2
+donie@donie-ThinkPad-T430:~$ cat sample1 sample2 > sample
+donie@donie-ThinkPad-T430:~$ cat sample
+This is sample1
+This is sample2
+donie@donie-ThinkPad-T430:~$ rm sample1
+donie@donie-ThinkPad-T430:~$ ls
+2        dir3       Music           Public       sample     test1
+Desktop  Documents  Pictures        respository  sample2    Videos
+dir      Downloads  praxis-academy  rm           Templates
+donie@donie-ThinkPad-T430:~$ mv sample2 /home/donie/Document
+donie@donie-ThinkPad-T430:~$ cat > test
+This is Test
+donie@donie-ThinkPad-T430:~$ mv test test1
+donie@donie-ThinkPad-T430:~$ mkdir mydirectory
+donie@donie-ThinkPad-T430:~$ ls
+2        dir3       Downloads    Pictures        respository  Templates
+Desktop  Document   Music        praxis-academy  rm           test1
+dir      Documents  mydirectory  Public          sample       Videos
+donie@donie-ThinkPad-T430:~$ mkdir /tmp/MUSIC
+mkdir: cannot create directory ‘/tmp/MUSIC’: File exists
+donie@donie-ThinkPad-T430:~$ ls /tmp
+config-err-OsYENj
+hsperfdata_donie
+lu2254lmw9qg.tmp
+mintUpdate
+mozilla_donie0
+MozillaUpdateLock-4F96D1932A9F858E
+MUSIC
+OSL_PIPE_1000_SingleOfficeIPC_2fa7dbfc9c403a6b7de791e0676655
+ssh-l6mBYYLeGHMj
+systemd-private-efa406d7426f43ef93864a28adc9386e-colord.service-TI4AUh
+systemd-private-efa406d7426f43ef93864a28adc9386e-ModemManager.service-XJeAvi
+systemd-private-efa406d7426f43ef93864a28adc9386e-systemd-logind.service-mq3bij
+systemd-private-efa406d7426f43ef93864a28adc9386e-systemd-resolved.service-QKLsVg
+systemd-private-efa406d7426f43ef93864a28adc9386e-systemd-timesyncd.service-KbxInj
+systemd-private-efa406d7426f43ef93864a28adc9386e-upower.service-QlSnhh
+Temp-7a582869-9c2e-4ede-93c7-f166779e0617
+donie@donie-ThinkPad-T430:~$ mkdir dir1 dir2 dir3
+mkdir: cannot create directory ‘dir3’: File exists
+donie@donie-ThinkPad-T430:~$ rmdir mydirectory
+donie@donie-ThinkPad-T430:~$ ls
+2        dir1  Document   Music           Public       sample     Videos
+Desktop  dir2  Documents  Pictures        respository  Templates
+dir      dir3  Downloads  praxis-academy  rm           test1
+donie@donie-ThinkPad-T430:~$ rmdir Documents
+rmdir: failed to remove 'Documents': Directory not empty
+donie@donie-ThinkPad-T430:~$ mvdir mydirectory newdirectory
+
+Command 'mvdir' not found, did you mean:
+
+  command 'vdir' from deb coreutils (8.30-3ubuntu2)
+  command 'mvdic' from deb canna-utils (3.7p3-14)
+  command 'mkdir' from deb coreutils (8.30-3ubuntu2)
+  command 'mdir' from deb mtools (4.0.24-1)
+  command 'svdir' from deb svtools (0.6-2)
+  command 'mmdir' from deb simh (3.8.1-6)
+
+Try: sudo apt install <deb name>
+
+donie@donie-ThinkPad-T430:~$ mkdir mydirectory
+donie@donie-ThinkPad-T430:~$ ls
+2        dir1  Document   Music        praxis-academy  rm         test1
+Desktop  dir2  Documents  mydirectory  Public          sample     Videos
+dir      dir3  Downloads  Pictures     respository     Templates
+donie@donie-ThinkPad-T430:~$ mv mydirectory newdirectory
+donie@donie-ThinkPad-T430:~$ ls
+2        dir1  Document   Music         praxis-academy  rm         test1
+Desktop  dir2  Documents  newdirectory  Public          sample     Videos
+dir      dir3  Downloads  Pictures      respository     Templates
+donie@donie-ThinkPad-T430:~$ 
+
+
+
+

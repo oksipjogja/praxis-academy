@@ -1,0 +1,13 @@
+﻿
+Pada saat boot loader awal
+tampilan pabrik yang mendeskripsikan type merk laptop
+GNU GRUB versi 2.04
+ada 3 pilihan :
+* Linux Mint 20.3
+* Advance Linux Mint 20.3
+* Windows ...
+dan informasi di bawahnya :
+"Use the cursor up and cursor down keys to select which entry is highlighted.
+Press enter to boot the selected OS or 'p' to enter 'a' password to unlock the
+next set of features."
+~The highlighted entry will be booted automatically in 7 seconds~

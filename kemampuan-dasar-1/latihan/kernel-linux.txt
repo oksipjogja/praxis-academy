@@ -1,0 +1,33 @@
+﻿KERNEL LINUX
+## Metode command "uname"
+# ' -r'
+tulis di terminal
+$ uname -r
+hasilnya
+5.4.0-91-generic
+penjelasan dari kode 5.4.0.91 generic adalah
+5 = versi kernel
+4 = major revision
+0 = minor revision
+91 = bux fix
+generic = informasi spesifik distribusi
+# ' -a'
+tulis di terminal
+$ uname -a
+hasilnya
+Linux donie-ThinkPad-T430 5.4.0-91-generic #102-Ubuntu SMP Fri Nov 5 16:31:28 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+## Metode command "hostnamectl"
+tulis di terminal
+$ hostnamectl
+hasilnya
+Static hostname: donie-ThinkPad-T430
+       Icon name: computer-laptop
+           Chassis: laptop
+        Machine ID: 09143d0261be487380a9ec9bf41d5922
+           Boot ID: efa406d7426f43ef93864a28adc9386e
+  Operating System: Linux Mint 20.3
+            Kernel: Linux 5.4.0-91-generic
+      Architecture: x86-64
+
+
+
