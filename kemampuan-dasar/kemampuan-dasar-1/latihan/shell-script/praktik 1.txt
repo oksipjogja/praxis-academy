@@ -1,0 +1,128 @@
+﻿Latihan Github
+Soal I
+First Push  Respository
+1. 	Create New Project
+	input nama project
+	create respository
+2.	copy url yang ada
+3.	buka terminal (ctrl+alt+t) lalu tulis
+	$  git init_path   # lokasi direktori 
+	$  git add .
+	$  git status  # untuk melihat status 
+	$  git commit -m “[string]”   # untuk membuat judul di respository
+	$  git branch -M main   # untuk meletakan di branch main
+	$  git remote add origin “url_new_project”
+	$  git status
+	$  git push -u origin main
+		   username github  :  input username
+		   password (token) :  copy dari setting → developer → token → new → copy
+4.	if not error done!!
+
+Second and continue Push Respository
+1.	Pindahkan file ke direktori yang sudah ada di github
+2.	Buka terminal (ctrl+alt+t) lalu tulis
+	$  git add .
+	$  git status  # melihat di direktory terjadi perubahan ditandai dengan warna merah
+	$  git branch -M main
+	$  git push -u origin main
+		   username github : username
+	    password (token) :
+3.	if not error done !!
+ 
+Soal II
+
+donie@donie-ThinkPad-T430:~$ mkdir LOKASI
+donie@donie-ThinkPad-T430:~$ ls
+collade.sh          Documents   firsh.sh        git-file        multiline-comment.sh  praxis-academy  respository_praxis  scripts.sh    Templates      while_example.sh
+comment_example.sh  Downloads   first.sh        if_with_AND.sh  Music                 Public          rm                  simple_if.sh  user_input.sh
+Desktop             example.sh  for_example.sh  LOKASI          Pictures              respository     script.sh           splash.sh     Videos
+donie@donie-ThinkPad-T430:~/LOKASI$ git clone https://github.com/praxis-academy/akademik.git
+Cloning into 'akademik'...
+remote: Enumerating objects: 1401, done.
+remote: Counting objects: 100% (35/35), done.
+remote: Compressing objects: 100% (29/29), done.
+remote: Total 1401 (delta 13), reused 15 (delta 6), pack-reused 1366
+Receiving objects: 100% (1401/1401), 1.91 MiB | 588.00 KiB/s, done.
+Resolving deltas: 100% (719/719), done.
+
+
+Soal III
+~> lakukan second and continue
+donie@donie-ThinkPad-T430:~/praxis-academy$ git add .
+warning: adding embedded git repository: LOKASI/akademik
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint: 
+hint: 	git submodule add <url> LOKASI/akademik
+hint: 
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint: 
+hint: 	git rm --cached LOKASI/akademik
+hint: 
+hint: See "git help submodule" for more information.
+donie@donie-ThinkPad-T430:~/praxis-academy$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   LOKASI/akademik
+	deleted:    kemampuan-dasar-1/latihan/shellscripts.md.odt
+	renamed:    kemampuan-dasar-1/latihan/README.md -> kemampuan-dasar/kemampuan-dasar-1/latihan/README.md
+	renamed:    kemampuan-dasar-1/latihan/cmd.line.txt -> kemampuan-dasar/kemampuan-dasar-1/latihan/cmd.line.txt
+	renamed:    kemampuan-dasar-1/latihan/env.txt -> kemampuan-dasar/kemampuan-dasar-1/latihan/env.txt
+	renamed:    kemampuan-dasar-1/latihan/grub.txt -> kemampuan-dasar/kemampuan-dasar-1/latihan/grub.txt
+	renamed:    kemampuan-dasar-1/latihan/kernel-linux.txt -> kemampuan-dasar/kemampuan-dasar-1/latihan/kernel-linux.txt
+	new file:   kemampuan-dasar/kemampuan-dasar-1/latihan/shellscripts.md.odt
+
+donie@donie-ThinkPad-T430:~/praxis-academy$ git branch -M main
+donie@donie-ThinkPad-T430:~/praxis-academy$ git commit -m "repo_lokal"
+[main f2a1139] repo_lokal
+ 8 files changed, 1 insertion(+)
+ create mode 160000 LOKASI/akademik
+ delete mode 100644 kemampuan-dasar-1/latihan/shellscripts.md.odt
+ rename {kemampuan-dasar-1 => kemampuan-dasar/kemampuan-dasar-1}/latihan/README.md (100%)
+ rename {kemampuan-dasar-1 => kemampuan-dasar/kemampuan-dasar-1}/latihan/cmd.line.txt (100%)
+ rename {kemampuan-dasar-1 => kemampuan-dasar/kemampuan-dasar-1}/latihan/env.txt (100%)
+ rename {kemampuan-dasar-1 => kemampuan-dasar/kemampuan-dasar-1}/latihan/grub.txt (100%)
+ rename {kemampuan-dasar-1 => kemampuan-dasar/kemampuan-dasar-1}/latihan/kernel-linux.txt (100%)
+ create mode 100644 kemampuan-dasar/kemampuan-dasar-1/latihan/shellscripts.md.odt
+donie@donie-ThinkPad-T430:~/praxis-academy$ git push -u origin main
+Username for 'https://github.com': oksipjogja
+Password for 'https://oksipjogja@github.com': 
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (7/7), 21.53 KiB | 7.17 MiB/s, done.
+Total 7 (delta 0), reused 0 (delta 0)
+To https://github.com/oksipjogja/praxis-academy.git
+   811185c..f2a1139  main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+
+
+DONE !!
+
+kemampuan-dasar/
+└── kemampuan-dasar-1
+    ├── kasus
+    │   ├── cari-java.sh
+    │   └── process-killer.sh
+    └── latihan
+        ├── cmdline.txt
+        ├── env.txt
+        ├── grub.txt
+        ├── kernel-linux.txt
+        └── shellscripts
+            ├── echo_example.sh
+            ├── first.sh
+            ....
+            ....
+            .... seluruh shell script yang dicoba
+            ....
+            ....
+            └── sleep-example.sh
+
