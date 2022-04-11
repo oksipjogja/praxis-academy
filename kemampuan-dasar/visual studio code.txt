@@ -1,0 +1,8 @@
+﻿Menginstall Visual Studi Code 
+
+Buka terminal lalu masukkan command sebagai berikut :
+~ $ sudo apt update
+~ $ sudo apt upgrade
+~ $ sudo whoami
+Sekarang install visual studio dengan perintah berikut :
+~ 
