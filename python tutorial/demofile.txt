@@ -1,0 +1,4 @@
+0123456789abcdef manis
+makan dengan yang pedas
+'the answer', 42
+b'0123456789abcdef'

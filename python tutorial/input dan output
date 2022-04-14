@@ -1,0 +1,126 @@
+# ## Format output yg lebih elegan
+# tahun = 2022
+# event = 'Lebaran'
+# print(f'Acara Halal Bihalal {event} {tahun}')
+
+# yes_votes = 42_572_654
+# no_votes = 43_132_495
+# percentage = yes_votes / (yes_votes + no_votes)
+# print('{:-9} YES votes {:2.2%}'.format(yes_votes,percentage))
+
+# s = 'Hello World'
+# str(s)
+# print(s)
+# print(repr(s))
+# print(str(1/7))
+
+# x = 10 * 3.25
+# y = 200 * 200
+# s = 'The value of x is ' + repr(x) + ', and y is ' + repr(y) + '...'
+# print(s)
+
+# # The repr() of a string adds string quotes and backslashes
+# hello = 'hello, world\n'
+# hellos = repr(hello)
+# print(hellos)
+
+# # The argument to repr() may be any Python object :
+# print(repr((x,y, ('spam', 'eggs'))))
+
+# ## Literal String Terformat
+# import math
+# print(f'The value of pi is approximately {math.pi:.3f}.')
+
+# tabel = {'Donie': 6285869784059, 'Iful': 628124873606, 'Oksip': 6281392655584}
+# for name, phone in tabel.items():
+#     print(f'{name:10} ==> {phone:10d}')
+
+# hewan = 'jangkrik'
+# print(f'Di halamanku banyak sekali {hewan}.')
+# print(f'Di halamanku banyak sekali {hewan!r}')
+
+# ## metode format string
+# print('Kita adalah {} disebut dengan "{}"' .format('Pelajar Bahasa Pemrograman', 'Programmer'))
+# print('{0} dan {1}'. format('singkong', 'keju'))
+# print('{1} dan {0}'. format('singkong', 'keju'))
+# print('Ini {food} rasanya {adjective}.'.format(food='makanan',adjective='sungguh nikmat'))
+
+# # posisi dan keyword argumen dapat digabung random
+# print('Cerita tentang {0}, {1}, dan {other}.'.format('Candi Prambanan', 'Rama',other='Sintha'))
+
+# tabel = {'Donie': 6285869784059, 'Iful': 628124873606, 'Oksip': 6281392655584}
+# print('Donie: {Donie:d}; Iful: {Iful:d}; Oksip: {Oksip:d}'.format(**tabel))
+
+# for x in range(1, 11):
+#     print('{0:2d} {1:3d} {2:4d}'.format(x, x*x, x*x*x))
+
+# ## format string manual
+# for x in range(1, 11):
+#     print(repr(x).rjust(2), repr(x*x).rjust(3), end=' ')
+#     # Note use of 'end' on previous line
+#     print(repr(x*x*x).rjust(4))
+
+# print('12'.zfill(5))
+# print('-3.14'.zfill(7))
+# print('3.14159265359'.zfill(7))
+
+# ## format string jadul
+# import math
+# print('The value of pi is approximately %5.3f.' %math.pi)
+
+## Menulis dan Membaca Files
+# f = open('demofile.txt', 'r')
+# with open('demofile.txt', 'r') as f:
+#     read_data = f.read()
+# print(read_data)
+# print(f.closed)
+# We can check that the file has been automatically closed
+
+##CATATAN MEMANGGIL f.write() tanpa menggunakan kata "with" yang terpanggil adalah f.close hal ini menghasilkan argument dari "f.write()" tidak serta merta tertulis di disk meskipun program sukses untuk keluar
+# contoh   
+# f.close()
+# f.read()
+
+## Object file method
+# f.read() == 'this is the entire file.\n'
+# # f = open('demofile.txt', 'r')
+# with open('demofile.txt', 'r') as f:
+# #     # print(f.read())
+#     print(f.readline())
+#     print(f.readline())
+#     print(f.readline())
+# f.closed
+# f = open('demofile.txt', 'r')
+# with open('demofile.txt') as f:
+#     for line in f:
+#         print(line, end='')
+# f.closed
+
+# f = open('demofile.txt', 'r')
+# with open('demofile.txt', 'w') as f:
+#     # f.write('This is a test\n')
+#     print(f.write('This is a test\n'))
+
+
+#     value = ('the answer', 42)
+# s = str(value) # convert the tuple to string
+# print(len(s))
+
+f = open('demofile.txt', 'r')
+with open('demofile.txt') as f:
+    read_data = f.read()
+    print(read_data)
+
+
+f = open('demofile.txt', 'rb+')
+print(f.write(b'0123456789abcdef'))
+print(f.seek(5))
+print(f.read(1))
+print(f.seek(-3, 2))
+print(f.read(1))
+
+import json
+x = [1, 'simple', 'list']
+print(json.dumps(x))
+# y = json.dump().format(1, 'simple', 'list')
+# print(y)
