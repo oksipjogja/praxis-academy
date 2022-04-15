@@ -121,6 +121,6 @@ print(f.read(1))
 
 import json
 x = [1, 'simple', 'list']
-print(json.dumps(x))
-# y = json.dump().format(1, 'simple', 'list')
-# print(y)
+y = json.dumps(x) 
+print(y)
+
