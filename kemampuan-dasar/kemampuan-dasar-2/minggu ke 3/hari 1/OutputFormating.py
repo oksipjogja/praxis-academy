@@ -10,6 +10,14 @@
 # the wrapped lines."""
 # print(textwrap.fill(doc, width=40))
 
-import locale
-locale.setlocale(locale.LC_ALL, "This method will be removed in a future version of Python. ")
- 
+# import locale
+# # locale.setlocale(locale.LC_ALL, 'English_United States.1252')
+# conv = locale.localeconv()
+# x = 1234567.8
+# locale.format("%d", x, grouping=True)
+# locale.format_string("s%.*f", (conv['currency_symbol'], conv['frac_digits'], x), grouping=True)
+
+from string import Template
+t = Template('${village}folk send $$10 to #cause.')
+t.substitute(village='Nottingham', cause='the ditch fund')
+
