@@ -183,3 +183,13 @@ sys.path
 # Installing collected packages: numpy
 # Successfully installed numpy-1.22.3
 # donie@donie-ThinkPad-T430:~/praxis-academy /kemampuan-dasar/kemampuan-dasar-2/m
+# an-dasar-2/minggu ke 3/hari 2$ pip freeze > requirements.txt
+# donie@donie-ThinkPad-T430:~/praxis-academy /kemampuan-dasar/kemampuan-dasar-2/minggu ke 3/hari 2$ cat requirements.txt
+# certifi==2021.10.8
+# charset-normalizer==2.0.12
+# idna==3.3
+# novas==3.1.1.5
+# numpy==1.22.3
+# requests==2.27.1
+# urllib3==1.26.9
+# donie@donie-ThinkPad-T430:~/praxis-academy /kemampuan-dasar/kemampuan-dasar-2/minggu ke 3/hari 2$ 
