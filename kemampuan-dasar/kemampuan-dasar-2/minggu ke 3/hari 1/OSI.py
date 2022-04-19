@@ -1,39 +1,38 @@
 ## 10.1 OPERATING SYSTEM INTERFACE
-
-# import os
-# print(os.getcwd())
-# print('/home/donie/praxis-academy')
-# print(os.system('mkdir learning_os'))
-# print(os.mkdir('/home/donie/coba'))
-# print(os.chdir('//home'))
-# print(os.chdir('..'))
-# print(dir(os))
-# print(help(os))
-# import shutil
-# print(shutil.copyfile('README.md'))
-# print(shutil.move('/home/donie/Documents/simple-landing-page', '/home/donie/coba'))
-# print(shutil.move('/home/donie/coba', '/home/donie/Documents/simple-landing-page'))
-# print(os.rmdir('/home/donie/coba'))
-# print(os.listdir('/home/'))
+import os
+print(os.getcwd())
+print('/home/donie/praxis-academy')
+print(os.system('mkdir learning_os'))
+print(os.mkdir('/home/donie/coba'))
+print(os.chdir('//home'))
+print(os.chdir('..'))
+print(dir(os))
+print(help(os))
+import shutil
+print(shutil.copyfile('README.md'))
+print(shutil.move('/home/donie/Documents/simple-landing-page', '/home/donie/coba'))
+print(shutil.move('/home/donie/coba', '/home/donie/Documents/simple-landing-page'))
+print(os.rmdir('/home/donie/coba'))
+print(os.listdir('/home/'))
 
 
 ## 10.2 FILE WILDCARDS
 
-# import glob
-# print(glob.glob('*.py'))
+import glob
+print(glob.glob('*.py'))
 
 ## 10.3 COMMAND LINE ARGUMENT
 
-# import sys
-# print(sys.argv)
-# import argparse
-# parser = argparse.ArgumentParser(
-#      prog='top',
-#      description='Show top lines from each file')
-# parser.add_argument('filenames', nargs='+')
-# parser.add_argument('-l', '--lines', type=int, default=10)
-# args = parser.parse_args()
-# print(args)
+import sys
+print(sys.argv)
+import argparse
+parser = argparse.ArgumentParser(
+     prog='top',
+     description='Show top lines from each file')
+parser.add_argument('filenames', nargs='+')
+parser.add_argument('-l', '--lines', type=int, default=10)
+args = parser.parse_args()
+print(args)
 
 ## ERROR OUTPUT REDIRECTION AND PROGRAM TERMINATION
 
@@ -42,7 +41,7 @@
 ## STRING PATTERN MATCHING
 
 # import re
-# print(re.findall(r'\bba[a-z]*', 'baby , botol , bayam, foot , roger , tank , sasori , sanemi')) ## asumsi "b" artinya berawalan. Abjad selajutnya artinya kata yang abjad tsb misal f maka mencari awalan f
+# print(re.findall(r'\bba[a-z]*', 'baby , bcdotol , bayam, foot , roger , tank , sasori , sanemi')) ## asumsi "b" artinya berawalan. Abjad selajutnya artinya kata yang abjad tsb misal f maka mencari awalan f
 # # # print(re.sub(r'(\b[a-z]+) \1', r'\1', 'cat ini the hat'))
 # # print('tea for too'.replace('too', 'two'))
 # print(re.findall(r'\bf[a-z]*', 'mana foot or hand fell fastest'))
@@ -139,3 +138,9 @@ class TestStatisticalFunctions(unittest.TestCase):
 
 unittest.main()
 
+"""cara compile file python/.py
+adalah dengan menulis 'python3 -m py_compile NamaFile.py' lalu klik enter
+untuk run folder compile cukup dengan cd __pycache__ lalu ketik python3 namafile (tab) dan enter"""
+
+
+# dengan cara compile maka akan lebih cepat dalam mengeksekusi bahasa program yakni dengan membuat bytecode
