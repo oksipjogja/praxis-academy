@@ -16,6 +16,9 @@ class DemonGod :
     def cure(self, curePower):
         self.__mana -= curePower
 
+    def setAttPower(self,newPower):
+        self.__attPower = newPower
+
 
 # awal anime
 rimuru = DemonGod('Rimuru Tempest', 1000, 100000)
@@ -30,6 +33,6 @@ print(rimuru.getMana())
 
 
 # print(rimuru.__dict__)
-""" encapculasi --> membuat private semua variabel
+""" encapculasi --> mencegah adanya bug dengan membuat private semua variabel
 dan untuk mengeksekusinya menggunakan getter (mengambil variabel) 
 dan setter (untuk mensetting variabel)""" 

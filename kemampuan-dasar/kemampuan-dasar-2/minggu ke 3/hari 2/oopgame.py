@@ -61,3 +61,5 @@ print(hero1.getHealth())
 # print(hero2.__dict__)
 # print(hero3.__dict__)
 # print(Hero.__dict__)
+
+print(hero1.__dict__)
