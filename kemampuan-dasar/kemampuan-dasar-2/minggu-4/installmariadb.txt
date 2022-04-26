@@ -1,0 +1,252 @@
+LANGKAH PERTAMA ADALAH :
+donie@donie-ThinkPad-T430:~$ sudo apt update
+Hit:1 http://packages.microsoft.com/repos/code stable InRelease
+Get:2 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]      
+Hit:3 http://ppa.launchpad.net/deadsnakes/ppa/ubuntu focal InRelease           
+Hit:4 https://cli.github.com/packages stable InRelease                         
+Hit:5 http://repository.spotify.com stable InRelease                           
+Hit:6 http://archive.canonical.com/ubuntu focal InRelease                      
+Hit:7 http://archive.ubuntu.com/ubuntu focal InRelease                         
+Get:8 http://security.ubuntu.com/ubuntu focal-security/main amd64 DEP-11 Metadata [40,7 kB]
+Ign:9 http://packages.linuxmint.com una InRelease                              
+Get:10 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]       
+Hit:11 http://packages.linuxmint.com una Release                               
+Get:12 http://security.ubuntu.com/ubuntu focal-security/universe amd64 DEP-11 Metadata [66,3 kB]
+Get:13 http://security.ubuntu.com/ubuntu focal-security/multiverse amd64 DEP-11 Metadata [2.464 B]
+Get:15 http://archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]     
+Get:16 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 DEP-11 Metadata [278 kB]
+Get:17 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 DEP-11 Metadata [390 kB]
+Get:18 http://archive.ubuntu.com/ubuntu focal-updates/multiverse amd64 DEP-11 Metadata [940 B]
+Get:19 http://archive.ubuntu.com/ubuntu focal-backports/main amd64 DEP-11 Metadata [7.976 B]
+Get:20 http://archive.ubuntu.com/ubuntu focal-backports/universe amd64 DEP-11 Metadata [30,8 kB]
+Fetched 1.153 kB in 4s (273 kB/s)                                            
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+All packages are up to date.
+donie@donie-ThinkPad-T430:~$ sudo apt install mariadb-server
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+mariadb-server is already the newest version (1:10.3.34-0ubuntu0.20.04.1).
+The following packages were automatically installed and are no longer required:
+  libgmp-dev libgmpxx4ldbl libgnutls-dane0 libgnutls-openssl27 libgnutls28-dev
+  libgnutlsxx28 libidn2-dev libp11-kit-dev libtasn1-6-dev libtasn1-doc
+  libunbound8 nettle-dev
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+donie@donie-ThinkPad-T430:~$ sudo vim /etc/mysql/mariadb.conf.d/50
+#ssl = on
+
+#
+# * Character sets
+#
+# MySQL/MariaDB default is Latin1, but in Debian we rather default to the full
+# utf8 4-byte character set. See also client.cnf
+#
+character-set-server  = utf8mb4
+collation-server      = utf8mb4_general_ci
+
+#
+# * InnoDB
+#
+# InnoDB is enabled by default with a 10MB datafile in /var/lib/mysql/.
+# Read the manual for more InnoDB related options. There are many!
+
+#
+# * Unix socket authentication plugin is built-in since 10.0.22-6
+#
+# Needed so the root database user can authenticate without a password but
+# only when running as the unix root user.
+#
+# Also available for other users if required.
+# See https://mariadb.com/kb/en/unix_socket-authentication-plugin/
+
+# this is only for embedded server
+[embedded]
+
+# This group is only read by MariaDB servers, not by MySQL.
+# If you use the same .cnf file for MySQL and MariaDB,
+# you can put MariaDB-only options here
+[mariadb]
+
+# This group is only read by MariaDB-10.3 servers.
+# If you use the same .cnf file for MariaDB of different versions,
+# use this group for options that older servers don't understand
+[mariadb-10.3]
+                                                                                                                                                       133,14        Bot
+character-set-server  = utf8mb4
+collation-server      = utf8mb4_general_ci
+
+
+donie@donie-ThinkPad-T430:~$ sudo systemctl restart mariadb
+[sudo] password for donie:          
+donie@donie-ThinkPad-T430:~$ sudo systemctl status mariadb
+● mariadb.service - MariaDB 10.3.34 database server
+     Loaded: loaded (/lib/systemd/system/mariadb.service; enabled; vendor prese>
+     Active: active (running) since Tue 2022-04-26 13:53:01 WIB; 43s ago
+       Docs: man:mysqld(8)
+             https://mariadb.com/kb/en/library/systemd/
+    Process: 32245 ExecStartPre=/usr/bin/install -m 755 -o mysql -g root -d /va>
+    Process: 32257 ExecStartPre=/bin/sh -c systemctl unset-environment _WSREP_S>
+    Process: 32259 ExecStartPre=/bin/sh -c [ ! -e /usr/bin/galera_recovery ] &&>
+    Process: 32341 ExecStartPost=/bin/sh -c systemctl unset-environment _WSREP_>
+    Process: 32343 ExecStartPost=/etc/mysql/debian-start (code=exited, status=0>
+   Main PID: 32310 (mysqld)
+     Status: "Taking your SQL requests now..."
+      Tasks: 31 (limit: 11485)
+     Memory: 70.4M
+     CGroup: /system.slice/mariadb.service
+             └─32310 /usr/sbin/mysqld
+
+Apr 26 13:53:00 donie-ThinkPad-T430 systemd[1]: Starting MariaDB 10.3.34 databa>
+Apr 26 13:53:00 donie-ThinkPad-T430 mysqld[32310]: 2022-04-26 13:53:00 0 [Note]>
+Apr 26 13:53:01 donie-ThinkPad-T430 systemd[1]: Started MariaDB 10.3.34 databas>
+
+donie@donie-ThinkPad-T430:~$ sudo systemctl restart mariadb
+[sudo] password for donie:          
+donie@donie-ThinkPad-T430:~$ sudo systemctl status mariadb
+● mariadb.service - MariaDB 10.3.34 database server
+     Loaded: loaded (/lib/systemd/system/mariadb.service; enabled; vendor prese>
+     Active: active (running) since Tue 2022-04-26 13:53:01 WIB; 43s ago
+       Docs: man:mysqld(8)
+             https://mariadb.com/kb/en/library/systemd/
+    Process: 32245 ExecStartPre=/usr/bin/install -m 755 -o mysql -g root -d /va>
+    Process: 32257 ExecStartPre=/bin/sh -c systemctl unset-environment _WSREP_S>
+    Process: 32259 ExecStartPre=/bin/sh -c [ ! -e /usr/bin/galera_recovery ] &&>
+    Process: 32341 ExecStartPost=/bin/sh -c systemctl unset-environment _WSREP_>
+    Process: 32343 ExecStartPost=/etc/mysql/debian-start (code=exited, status=0>
+   Main PID: 32310 (mysqld)
+     Status: "Taking your SQL requests now..."
+      Tasks: 31 (limit: 11485)
+     Memory: 70.4M
+     CGroup: /system.slice/mariadb.service
+             └─32310 /usr/sbin/mysqld
+
+Apr 26 13:53:00 donie-ThinkPad-T430 systemd[1]: Starting MariaDB 10.3.34 databa>
+Apr 26 13:53:00 donie-ThinkPad-T430 mysqld[32310]: 2022-04-26 13:53:00 0 [Note]>
+Apr 26 13:53:01 donie-ThinkPad-T430 systemd[1]: Started MariaDB 10.3.34 databas>
+
+donie@donie-ThinkPad-T430:~$ sudo mysql_secure_installation
+
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user.  If you've just installed MariaDB, and
+you haven't set the root password yet, the password will be blank,
+so you should just press enter here.
+
+Enter current password for root (enter for none): 
+OK, successfully used password, moving on...
+
+Setting the root password ensures that nobody can log into the MariaDB
+root user without the proper authorisation.
+
+Set root password? [Y/n] umbara_77
+Set root password? [Y/n] umbara_77
+Set root password? [Y/n] y
+New password: 
+Re-enter new password: 
+Password updated successfully!
+Reloading privilege tables..
+ ... Success!
+
+
+By default, a MariaDB installation has an anonymous user, allowing anyone
+to log into MariaDB without having to have a user account created for
+them.  This is intended only for testing, and to make the installation
+go a bit smoother.  You should remove them before moving into a
+production environment.
+
+Remove anonymous users? [Y/n] y
+ ... Success!
+
+Normally, root should only be allowed to connect from 'localhost'.  This
+ensures that someone cannot guess at the root password from the network.
+
+Disallow root login remotely? [Y/n] y
+ ... Success!
+
+By default, MariaDB comes with a database named 'test' that anyone can
+access.  This is also intended only for testing, and should be removed
+before moving into a production environment.
+
+Remove test database and access to it? [Y/n] y
+ - Dropping test database...
+ ... Success!
+ - Removing privileges on test database...
+ ... Success!
+
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
+
+Reload privilege tables now? [Y/n] y
+ ... Success!
+
+Cleaning up...
+
+All done!  If you've completed all of the above steps, your MariaDB
+installation should now be secure.
+
+Thanks for using MariaDB!
+donie@donie-ThinkPad-T430:~$ sudo mysql
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 44
+Server version: 10.3.34-MariaDB-0ubuntu0.20.04.1 Ubuntu 20.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> exit
+Bye
+donie@donie-ThinkPad-T430:~$ sudo myql
+sudo: myql: command not found
+donie@donie-ThinkPad-T430:~$ sudo mysql
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 45
+Server version: 10.3.34-MariaDB-0ubuntu0.20.04.1 Ubuntu 20.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
++--------------------+
+3 rows in set (0.034 sec)
+
+MariaDB [(none)]> exit
+Bye
+
+UNTUK MENAMPILKAN MYSQL DENGAN USER & Password
+donie@donie-ThinkPad-T430:~$ sudo mysql -u root -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 49
+Server version: 10.3.34-MariaDB-0ubuntu0.20.04.1 Ubuntu 20.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
++--------------------+
+3 rows in set (0.001 sec)
+
+MariaDB [(none)]> exit
+Bye
+donie@donie-ThinkPad-T430:~$
+

@@ -1,11 +1,9 @@
-# class EmailClient(object):
+class EmailClient(object):
     
-#     def __init__(self, config):
-#         self._config = config
-#         self.connect(self._config)
+    def __init__(self, config):
+        self._config = config
+        self.connect(self._config)
         
-#     def connect(self, config):
-#         # Implement functior
-#         pass
-    
-# class EmailReader
+    def connect(self, config):
+        # Implement functior
+        pass
