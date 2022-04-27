@@ -130,5 +130,47 @@ Database changed
 
 ******PEMBUATAN TABEL********
 
+MariaDB [supplier]> create table data_supp(
+    -> id_supp varchar(5),
+    -> nama_supp varchar(30),
+    -> p_kiriman int(5),
+    -> nama_buah varchar(30),
+    -> primary key(id_supp));
+Query OK, 0 rows affected (0.313 sec)
+
+MariaDB [supplier]> create table data_pengirim(
+    -> id_supp varchar(3),
+    -> nama_supp varchar(40),
+    -> nama_buah varchar(30),
+    -> t_datang date,
+    -> p_kiriman varchar(20),
+    -> primary key(id_supp));
+Query OK, 0 rows affected (0.278 sec)
+
+MariaDB [supplier]> show tables;
++--------------------+
+| Tables_in_supplier |
++--------------------+
+| data_pengirim      |
++--------------------+
+1 row in set (0.001 sec)
+
+
+
+*******MELAKUKAN INPUT DATA TABEL********
+
+MariaDB [supplier]> insert into data_pengirim(id_supp, nama_supp, nama_buah, t_datang, p_kiriman) value ('wd', 'suwandi', 'mangga', '2021-06-12', 'ke_1');
+Query OK, 1 row affected (0.067 sec)
+
+MariaDB [supplier]> select * from data_pengirim;
++---------+-----------+-----------+------------+-----------+
+| id_supp | nama_supp | nama_buah | t_datang   | p_kiriman |
++---------+-----------+-----------+------------+-----------+
+| wd      | suwandi   | mangga    | 2021-06-12 | ke_1      |
++---------+-----------+-----------+------------+-----------+
+1 row in set (0.001 sec)
+
+
+
 
 
