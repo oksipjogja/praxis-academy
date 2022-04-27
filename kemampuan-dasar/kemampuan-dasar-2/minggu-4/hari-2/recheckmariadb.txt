@@ -54,4 +54,81 @@ You can turn off this feature to get a quicker startup with -A
 Database changed
 MariaDB [majalah]> 
 
+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 -----> token github
+
+DROP DATABASE nama_database; -----> untuk menghapus databases
+MariaDB [majalah]> SELECT * from informasi_berita;   ----->melihat hasil inputan database
++------------+-------------------------------------------------------------+
+| id_penulis | berita                                                      |
++------------+-------------------------------------------------------------+
+|          1 | Ditemukan di selokan wanita bugil                           |
+|          2 | Mas Syafak Mengajak Para Santri Untuk Berbuka Puasa Bersama |
+|          3 | Marilah Bersama Kita Mudik Bareng                           |
++------------+-------------------------------------------------------------+
+3 rows in set (0.001 sec)
+
+Database changed
+MariaDB [majalah]> INSERT INTO informasi_user (id_penulis,nama_penulis) VALUES ('2','Aji');
+Query OK, 1 row affected (0.062 sec)
+
+MariaDB [majalah]> INSERT INTO informasi_user (id_penulis,nama_penulis) VALUES ('3','Syafak');
+Query OK, 1 row affected (0.050 sec)
+
+Database changed
+MariaDB [majalah]> SELECT * from informasi_user;
++------------+--------------+
+| id_penulis | nama_penulis |
++------------+--------------+
+|          1 | Donie        |
+|          2 | Aji          |
+|          3 | Syafak       |
++------------+--------------+
+3 rows in set (0.000 sec)
+
+MariaDB [majalah]> select informasi_berita.id_penulis, informasi_berita.berita, informasi_user.nama_penulis from informasi_berita, informasi_user where informasi_berita.id_penulis=informasi_user.id_penulis;
++------------+-------------------------------------------------------------+--------------+
+| id_penulis | berita                                                      | nama_penulis |
++------------+-------------------------------------------------------------+--------------+
+|          1 | Ditemukan di selokan wanita bugil                           | Donie        |
+|          2 | Mas Syafak Mengajak Para Santri Untuk Berbuka Puasa Bersama | Aji          |
+|          3 | Marilah Bersama Kita Mudik Bareng                           | Syafak       |
++------------+-------------------------------------------------------------+--------------+
+3 rows in set (0.033 sec)
+
+MariaDB [information_schema]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| majalah            |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
++--------------------+
+5 rows in set (0.001 sec)
+
+*****CONTOH PEMBUATAN DATABASE******
+
+MariaDB [information_schema]> create database supplier;
+Query OK, 1 row affected (0.000 sec)
+
+MariaDB [information_schema]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| majalah            |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| supplier           |
++--------------------+
+6 rows in set (0.001 sec)
+
+MariaDB [information_schema]> use supplier;
+Database changed
+
+******PEMBUATAN TABEL********
+
+
 
