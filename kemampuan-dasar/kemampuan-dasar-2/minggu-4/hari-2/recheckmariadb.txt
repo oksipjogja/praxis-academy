@@ -1,0 +1,57 @@
+MariaDB [(none)]> create database majalah;
+Query OK, 1 row affected (0.019 sec)
+
+MariaDB [(none)]> use majalah;
+Database changed
+MariaDB [majalah]> create table informasi_berita(
+    -> id_penulis int(5),
+    -> berita text,
+    -> primary key (id_penulis));
+Query OK, 0 rows affected (0.191 sec)
+MariaDB [majalah]> create table informasi_user(
+    -> id_penulis int(5),
+    -> nama_penulis varchar(100),
+    -> primary key (id_penulis));
+Query OK, 0 rows affected (0.207 sec)
+
+MariaDB [majalah]> show tables;
++-------------------+
+| Tables_in_majalah |
++-------------------+
+| informasi_berita  |
+| informasi_user    |
++-------------------+
+2 rows in set (0.001 sec)
+Database changed
+MariaDB [majalah]> exit;
+Bye
+donie@donie-ThinkPad-T430:~$ sudo mysql
+[sudo] password for donie:          
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 39
+Server version: 10.3.34-MariaDB-0ubuntu0.20.04.1 Ubuntu 20.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| majalah            |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
++--------------------+
+5 rows in set (0.001 sec)
+
+MariaDB [(none)]> use majalah;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [majalah]> 
+
+
