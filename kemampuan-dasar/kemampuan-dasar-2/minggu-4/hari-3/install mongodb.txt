@@ -1,0 +1,227 @@
+****PROSES INSTALASI MONGODB******
+
+donie@donie-ThinkPad-T430:~$ wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+[sudo] password for donie:          
+OK
+donie@donie-ThinkPad-T430:~$ sudo apt-get install gnupg
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+gnupg is already the newest version (2.2.19-3ubuntu2.1).
+0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.
+donie@donie-ThinkPad-T430:~$ wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+OK
+donie@donie-ThinkPad-T430:~$ wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mQINBGAsKNUBEAClMqPCvvqm6gFmbiorEN9qp00GI8oaECkwbxtGGbqX9sqMSrKe
+AB3sGI7kqG2Fl0K+xmmiq1QDjhNgFDA1jjXq+Bd66RNPtvu747IRxVs+9fX7bk67
+8Bruha7U3M5l4193x5oYLlbcZL9aC7RSJE2mggTyS6LarmF6vKQN9LMXDicnageV
+KCPpF2i3jkZaGnLPzAisW/pOjPQpWCbatTVqKOKvtOyP3Fz1spYd4obu6ELu1PXa
+gmhSfvWJYt1irpchOl29LWZfcmXuJszmb00bqm4gLcK12VrnK191iXv46A8h2hSO
+f3eQqrkc+pF/kw4RyG54EV7QtHXyTe9TVCbJUfgtliWIQt/bCoJYfPLHJaWIMs83
+bzA6ZvOjCKIfMS0CY5ZJyVaBfiI3wURSjgZIYFZAXVwbreQIfOKKuik7UVVn3xUO
+nWpmQ2zyI0W7cJMquxwLNjkI+RckPhIqxWFo5iNSV4v6pzrlHD1WmIfFGBKEn7m+
+edwVyHG53fNIFZjxyShO6Pf1vgb9Js/XmXB4lxYnNyx1tB+hQhXTjLlY6N5gPpw5
+Z/PWQc7vfYekUZGQMXhTyRxU0QTwmdEeKcb+fb9r23OH59bbAfzE10xTMzhqCd2L
+lgSozMBvMmkHb1xs1x6FFuv/U/X7LjHTrHIf4M//DNwdP4l4I1jhPlTAxwARAQAB
+tDdNb25nb0RCIDUuMCBSZWxlYXNlIFNpZ25pbmcgS2V5IDxwYWNrYWdpbmdAbW9u
+Z29kYi5jb20+iQI+BBMBAgAoBQJgLCjVAhsDBQkJZgGABgsJCAcDAgYVCAIJCgsE
+FgIDAQIeAQIXgAAKCRCwCgvR4sY8EawdD/0ewkyx3yE99K9n3y7gdvh5+2U8BsqU
+7SWEfup7kPpf+4pF5xWqMaciEV/wRAGt7TiKlfVyAv3Q9iNsaLFN+s3kMaIcKhwD
+8+q/iGfziIuOSTeo20dAxn9vF6YqrKGc7TbHdXf9AtYuJCfIU5j02uVZiupx+P9+
+rG39dEnjOXm3uY0Fv3pRGCpuGubDlWB1DYh0R5O481kDVGoMqBxmc3iTALu14L/u
+g+AKxFYfT4DmgdzPVMDhppgywfyd/IOWxoOCl4laEhVjUt5CygBa7w07qdKwWx2w
+gTd9U0KGHxnnSmvQYxrRrS5RX3ILPJShivTSZG+rMqnUe6RgCwBrKHCRU1L728Yv
+1B3ZFJLxB1TlVT2Hjr+oigp0RY9W1FCIdO2uhb9GImpaJ1Y0ZZqUkt/d9D8U2wcw
+SW6/6WYeO7wAi/zlJ25hrBwhxS2+88gM6wJ1yL9yrM9v8JUb7Kq0rCGsEO5kqscV
+AmX90wsF2cZ6gHR53eGIDbAJK0MO5RHR73aQ4bpTivPnoTx4HTj5fyhW9z8yCSOe
+BlQABoFFqFvOS7KBxoyIS3pxlDetWOSc6yQrvA1CwxnkB81OHNmJfWAbNbEtZkLm
+xs2c8CIh2R81yi6HUzAaxyDH7mrThbwX3hUe/wsaD1koV91G6bDD4Xx3zpa9DG/O
+HyB98+e983gslg==
+=IQQF
+-----END PGP PUBLIC KEY BLOCK-----
+donie@donie-ThinkPad-T430:~$ sudo apt-get install gnupg
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+gnupg is already the newest version (2.2.19-3ubuntu2.1).
+0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.
+donie@donie-ThinkPad-T430:~$ wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+OK
+donie@donie-ThinkPad-T430:~$ echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+deb http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 main
+donie@donie-ThinkPad-T430:~$ 
+donie@donie-ThinkPad-T430:~$ sudo apt-get update
+Get:1 http://packages.microsoft.com/repos/code stable InRelease [10,4 kB]
+Ign:2 http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 InRelease      
+Get:3 http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 Release [2.396 B]
+Get:4 http://packages.microsoft.com/repos/code stable/main amd64 Packages [81,2 kB]
+Hit:5 http://archive.ubuntu.com/ubuntu focal InRelease                         
+Hit:6 http://repository.spotify.com stable InRelease                           
+Get:7 http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 Release.gpg [801 B]
+Get:8 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]        
+Hit:9 https://cli.github.com/packages stable InRelease                         
+Hit:10 http://ppa.launchpad.net/deadsnakes/ppa/ubuntu focal InRelease          
+Get:11 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]     
+Ign:12 http://packages.linuxmint.com una InRelease                             
+Ign:13 http://apt.postgresql.org/pub/repos/apt una-pgdg InRelease              
+Err:14 http://apt.postgresql.org/pub/repos/apt una-pgdg Release                
+  404  Not Found [IP: 72.32.157.246 80]
+Get:15 http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0/main amd64 Packages [15,1 kB]
+Hit:16 http://packages.linuxmint.com una Release                               
+Get:18 http://archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]     
+Get:19 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [1.749 kB]
+Get:20 http://security.ubuntu.com/ubuntu focal-security/main amd64 DEP-11 Metadata [40,6 kB]
+Get:21 http://security.ubuntu.com/ubuntu focal-security/universe amd64 DEP-11 Metadata [66,4 kB]
+Get:22 http://security.ubuntu.com/ubuntu focal-security/multiverse amd64 DEP-11 Metadata [2.464 B]
+Hit:23 http://archive.canonical.com/ubuntu focal InRelease                     
+Get:24 http://archive.ubuntu.com/ubuntu focal-updates/main i386 Packages [637 kB]
+Get:25 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 DEP-11 Metadata [278 kB]
+Get:26 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [920 kB]
+Get:27 http://archive.ubuntu.com/ubuntu focal-updates/universe i386 Packages [678 kB]
+Get:28 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 DEP-11 Metadata [390 kB]
+Get:29 http://archive.ubuntu.com/ubuntu focal-updates/multiverse amd64 DEP-11 Metadata [940 B]
+Get:30 http://archive.ubuntu.com/ubuntu focal-backports/main amd64 DEP-11 Metadata [7.988 B]
+Get:31 http://archive.ubuntu.com/ubuntu focal-backports/universe amd64 DEP-11 Metadata [30,8 kB]
+Reading package lists... Done                                                  
+N: Skipping acquire of configured file 'main/binary-i386/Packages' as repository 'http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 InRelease' doesn't support architecture 'i386'
+E: The repository 'http://apt.postgresql.org/pub/repos/apt una-pgdg Release' does not have a Release file.
+N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+N: See apt-secure(8) manpage for repository creation and user configuration details.
+donie@donie-ThinkPad-T430:~$ sudo apt-get install -y mongodb-org
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libboost-program-options1.71.0 libgoogle-perftools4 libpcrecpp0v5
+  libtcmalloc-minimal4 libyaml-cpp0.6 mongo-tools mongodb-server-core
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  mongodb-database-tools mongodb-mongosh mongodb-org-database
+  mongodb-org-database-tools-extra mongodb-org-mongos mongodb-org-server
+  mongodb-org-shell mongodb-org-tools
+The following packages will be REMOVED:
+  mongodb mongodb-clients mongodb-server
+The following NEW packages will be installed:
+  mongodb-database-tools mongodb-mongosh mongodb-org mongodb-org-database
+  mongodb-org-database-tools-extra mongodb-org-mongos mongodb-org-server
+  mongodb-org-shell mongodb-org-tools
+0 upgraded, 9 newly installed, 3 to remove and 6 not upgraded.
+Need to get 147 MB of archives.
+After this operation, 387 MB of additional disk space will be used.
+Get:1 http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0/main amd64 mongodb-database-tools amd64 100.5.2 [46,4 MB]
+Get:2 http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0/main amd64 mongodb-mongosh amd64 1.3.1 [40,8 MB]
+Get:3 http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0/main amd64 mongodb-org-shell amd64 5.0.8 [14,4 MB]
+Get:4 http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0/main amd64 mongodb-org-server amd64 5.0.8 [26,3 MB]
+Get:5 http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0/main amd64 mongodb-org-mongos amd64 5.0.8 [18,5 MB]
+Get:6 http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0/main amd64 mongodb-org-database-tools-extra amd64 5.0.8 [7.752 B]
+Get:7 http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0/main amd64 mongodb-org-database amd64 5.0.8 [3.540 B]
+Get:8 http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0/main amd64 mongodb-org-tools amd64 5.0.8 [2.896 B]
+Get:9 http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0/main amd64 mongodb-org amd64 5.0.8 [2.932 B]
+Fetched 147 MB in 2min 43s (898 kB/s)                                          
+(Reading database ... 386282 files and directories currently installed.)
+Removing mongodb (1:3.6.9+really3.6.8+90~g8e540c0b6d-0ubuntu5.3) ...
+Removing mongodb-server (1:3.6.9+really3.6.8+90~g8e540c0b6d-0ubuntu5.3) ...
+Removing mongodb-clients (1:3.6.9+really3.6.8+90~g8e540c0b6d-0ubuntu5.3) ...
+Selecting previously unselected package mongodb-database-tools.
+(Reading database ... 386265 files and directories currently installed.)
+Preparing to unpack .../0-mongodb-database-tools_100.5.2_amd64.deb ...
+Unpacking mongodb-database-tools (100.5.2) ...
+dpkg: error processing archive /tmp/apt-dpkg-install-NSS1tn/0-mongodb-database-tools_100.5.2_amd64.deb (--unpack):
+ trying to overwrite '/usr/bin/bsondump', which is also in package mongo-tools 3.6.3-0ubuntu1
+dpkg-deb: error: paste subprocess was killed by signal (Broken pipe)
+Selecting previously unselected package mongodb-mongosh.
+Preparing to unpack .../1-mongodb-mongosh_1.3.1_amd64.deb ...
+Unpacking mongodb-mongosh (1.3.1) ...
+Selecting previously unselected package mongodb-org-shell.
+Preparing to unpack .../2-mongodb-org-shell_5.0.8_amd64.deb ...
+Unpacking mongodb-org-shell (5.0.8) ...
+Selecting previously unselected package mongodb-org-server.
+Preparing to unpack .../3-mongodb-org-server_5.0.8_amd64.deb ...
+Unpacking mongodb-org-server (5.0.8) ...
+dpkg: error processing archive /tmp/apt-dpkg-install-NSS1tn/3-mongodb-org-server_5.0.8_amd64.deb (--unpack):
+ trying to overwrite '/usr/bin/mongod', which is also in package mongodb-server-core 1:3.6.9+really3.6.8+90~g8e540c0b6d-0ubuntu5.3
+dpkg-deb: error: paste subprocess was killed by signal (Broken pipe)
+Selecting previously unselected package mongodb-org-mongos.
+Preparing to unpack .../4-mongodb-org-mongos_5.0.8_amd64.deb ...
+Unpacking mongodb-org-mongos (5.0.8) ...
+dpkg: error processing archive /tmp/apt-dpkg-install-NSS1tn/4-mongodb-org-mongos_5.0.8_amd64.deb (--unpack):
+ trying to overwrite '/usr/bin/mongos', which is also in package mongodb-server-core 1:3.6.9+really3.6.8+90~g8e540c0b6d-0ubuntu5.3
+dpkg-deb: error: paste subprocess was killed by signal (Broken pipe)
+Selecting previously unselected package mongodb-org-database-tools-extra.
+Preparing to unpack .../5-mongodb-org-database-tools-extra_5.0.8_amd64.deb ...
+Unpacking mongodb-org-database-tools-extra (5.0.8) ...
+Selecting previously unselected package mongodb-org-database.
+Preparing to unpack .../6-mongodb-org-database_5.0.8_amd64.deb ...
+Unpacking mongodb-org-database (5.0.8) ...
+Selecting previously unselected package mongodb-org-tools.
+Preparing to unpack .../7-mongodb-org-tools_5.0.8_amd64.deb ...
+Unpacking mongodb-org-tools (5.0.8) ...
+Selecting previously unselected package mongodb-org.
+Preparing to unpack .../8-mongodb-org_5.0.8_amd64.deb ...
+Unpacking mongodb-org (5.0.8) ...
+Errors were encountered while processing:
+ /tmp/apt-dpkg-install-NSS1tn/0-mongodb-database-tools_100.5.2_amd64.deb
+ /tmp/apt-dpkg-install-NSS1tn/3-mongodb-org-server_5.0.8_amd64.deb
+ /tmp/apt-dpkg-install-NSS1tn/4-mongodb-org-mongos_5.0.8_amd64.deb
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+
+****RUN MONGODB****
+
+sudo service mongodb status
+donie@donie-ThinkPad-T430:~$ sudo service mongodb status
+● mongodb.service
+     Loaded: masked (Reason: Unit mongodb.service is masked.)
+     Active: inactive (dead) since Thu 2022-04-28 13:50:39 WIB; 4min 0s ago
+   Main PID: 1006 (code=exited, status=0/SUCCESS)
+
+Apr 28 11:48:17 donie-ThinkPad-T430 systemd[1]: Started An object/document-orie>
+Apr 28 13:50:38 donie-ThinkPad-T430 systemd[1]: Stopping An object/document-ori>
+Apr 28 13:50:39 donie-ThinkPad-T430 systemd[1]: mongodb.service: Succeeded.
+Apr 28 13:50:39 donie-ThinkPad-T430 systemd[1]: Stopped An object/document-orie>
+lines 1-9/9 (END)
+
+donie@donie-ThinkPad-T430:~$ sudo service mongodb restart
+Failed to restart mongodb.service: Unit mongodb.service is masked.
+donie@donie-ThinkPad-T430:~$ sudo systemctl unmask mongodb
+Removed /etc/systemd/system/mongodb.service.
+donie@donie-ThinkPad-T430:~$ sudo service mongodb restart
+donie@donie-ThinkPad-T430:~$ sudo service mongodb status
+● mongodb.service - LSB: An object/document-oriented database
+     Loaded: loaded (/etc/init.d/mongodb; generated)
+     Active: active (running) since Thu 2022-04-28 13:57:46 WIB; 17s ago
+       Docs: man:systemd-sysv-generator(8)
+    Process: 12527 ExecStart=/etc/init.d/mongodb start (code=exited, status=0/S>
+      Tasks: 23 (limit: 11485)
+     Memory: 142.4M
+     CGroup: /system.slice/mongodb.service
+             └─12552 /usr/bin/mongod --config /etc/mongodb.conf
+
+Apr 28 13:57:45 donie-ThinkPad-T430 systemd[1]: Starting LSB: An object/documen>
+Apr 28 13:57:45 donie-ThinkPad-T430 mongodb[12527]:  * Starting database mongodb
+Apr 28 13:57:46 donie-ThinkPad-T430 mongodb[12527]:    ...done.
+Apr 28 13:57:46 donie-ThinkPad-T430 systemd[1]: Started LSB: An object/document>
+donie@donie-ThinkPad-T430:~$ sudo service mongodb start
+donie@donie-ThinkPad-T430:~$ sudo service mongodb stop
+donie@donie-ThinkPad-T430:~$ sudo service mongodb start
+donie@donie-ThinkPad-T430:~$ sudo service mongodb status
+● mongodb.service - LSB: An object/document-oriented database
+     Loaded: loaded (/etc/init.d/mongodb; generated)
+     Active: active (running) since Thu 2022-04-28 14:00:37 WIB; 9s ago
+       Docs: man:systemd-sysv-generator(8)
+    Process: 13744 ExecStart=/etc/init.d/mongodb start (code=exited, status=0/S>
+      Tasks: 23 (limit: 11485)
+     Memory: 142.9M
+     CGroup: /system.slice/mongodb.service
+             └─13752 /usr/bin/mongod --config /etc/mongodb.conf
+
+Apr 28 14:00:36 donie-ThinkPad-T430 systemd[1]: Starting LSB: An object/documen>
+Apr 28 14:00:36 donie-ThinkPad-T430 mongodb[13744]:  * Starting database mongodb
+Apr 28 14:00:37 donie-ThinkPad-T430 mongodb[13744]:    ...done.
+Apr 28 14:00:37 donie-ThinkPad-T430 systemd[1]: Started LSB: An object/document>
+
+[2]+  Stopped                 sudo service mongodb status
+donie@donie-ThinkPad-T430:~$ sudo service mongodb stop
+donie@donie-ThinkPad-T430:~$ 
+sudo apt install mongodb
