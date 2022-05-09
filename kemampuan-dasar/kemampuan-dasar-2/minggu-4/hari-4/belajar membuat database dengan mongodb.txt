@@ -132,3 +132,58 @@ agar tampilan lebih bagus tambahkan pretty:
         "pengarang" : "Brotosuseso",
         "harga" : "100000"
     }
+
+untuk menampilkan hanya harga:
+    db.buku.find({ harga : 100000 })
+
+untuk melakukan perubahan atau update :
+    > db.buku.update(
+    ... {
+    ... judul : "Sejarah Prambanan"
+    ... },
+    ... {
+    ... judul : "Sejarah Prambanan",
+    ... sinopsis : "Asal Mula Adanya Candi Prambanan",
+    ... pengarang : "Brotosuseno",
+    ... harga : 75000
+    ... }
+    ... )
+    WriteResult({ "nMatched" : 0, "nUpserted" : 0, "nModified" : 0 })
+
+untuk menghapus isi dari data terinput :
+    > db.buku.remove({judul: "Belajar MongoDB"})
+    WriteResult({ "nRemoved" : 1 })
+
+untuk menghapus data terinput di database:
+    > db.buku.drop()
+    false
+
+kemudian munculkan database yang tersimpan
+    > show dbs
+    admin     0.000GB
+    config    0.000GB
+    local     0.000GB
+    tokobuku  0.000GB
+
+cek versi mongodb
+donie@donie-ThinkPad-T430:~$ mongod --version
+db version v3.6.8
+git version: 8e540c0b6db93ce994cc548f000900bdc740f80a
+OpenSSL version: OpenSSL 1.1.1f  31 Mar 2020
+allocator: tcmalloc
+modules: none
+build environment:
+    distarch: x86_64
+    target_arch: x86_64
+
+cek mongodb shell
+donie@donie-ThinkPad-T430:~$ mongo -version
+MongoDB shell version v3.6.8
+git version: 8e540c0b6db93ce994cc548f000900bdc740f80a
+OpenSSL version: OpenSSL 1.1.1f  31 Mar 2020
+allocator: tcmalloc
+modules: none
+build environment:
+    distarch: x86_64
+    target_arch: x86_64
+donie@donie-ThinkPad-T430:~$ 

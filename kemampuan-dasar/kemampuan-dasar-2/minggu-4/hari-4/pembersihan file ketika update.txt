@@ -1,0 +1,57 @@
+donie@donie-ThinkPad-T430:~$ sudo apt update
+Hit:1 https://cli.github.com/packages stable InRelease
+Hit:2 http://packages.microsoft.com/repos/code stable InRelease                                                                                                      
+Ign:3 http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 InRelease                                                                                               
+Hit:4 http://ppa.launchpad.net/deadsnakes/ppa/ubuntu focal InRelease                                                                                                    
+Hit:5 http://repository.spotify.com stable InRelease                                                                                                                    
+Get:6 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]                                                                                               
+Hit:7 http://apt.postgresql.org/pub/repos/apt focal-pgdg InRelease                                                                                                      
+Hit:8 http://archive.canonical.com/ubuntu focal InRelease                                                                                                               
+Hit:9 http://archive.ubuntu.com/ubuntu focal InRelease                                                                                                     
+Ign:10 http://packages.linuxmint.com una InRelease                                                   
+Hit:11 http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 Release                             
+Hit:12 http://archive.ubuntu.com/ubuntu focal-updates InRelease                                      
+Hit:13 http://packages.linuxmint.com una Release                               
+Hit:14 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Fetched 114 kB in 2s (48,3 kB/s)
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+8 packages can be upgraded. Run 'apt list --upgradable' to see them.
+N: Skipping acquire of configured file 'main/binary-i386/Packages' as repository 'http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 InRelease' doesn't support architecture 'i386'
+
+
+untuk menghilangkan 
+"N: Skipping acquire of configured file 'main/binary-i386/Packages' as repository 'http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 InRelease' doesn't support architecture 'i386'"
+----> penyebabnya adalah file ini berjalan pada versi 32 sedangkan yang terinstall di kom kita versi 64
+
+buka terminal lalu ketik di bawah ini:
+donie@donie-ThinkPad-T430:~$ sudo -H gedit /etc/apt/sources.list.d/pgdg.list
+di menu sources.list.d (edit pgdg.list)
+buka open dan langsung diarahkan ke sources list d cari file yang bermasalah lalu lakukan edit dengan cara menambahkan '[arch=amd64]'
+setelah dilakukan edit jangan lupa save
+dan lakukan update kembali
+donie@donie-ThinkPad-T430:~$ sudo apt update
+Hit:1 http://packages.microsoft.com/repos/code stable InRelease
+Hit:2 https://cli.github.com/packages stable InRelease                                   
+Ign:3 http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 InRelease                                                                                               
+Hit:4 http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 Release                                                                                                 
+Hit:6 http://ppa.launchpad.net/deadsnakes/ppa/ubuntu focal InRelease                                                                                                    
+Hit:7 http://repository.spotify.com stable InRelease                                                                                                                    
+Get:8 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]                                                                                               
+Ign:9 http://packages.linuxmint.com una InRelease                                                                                                                       
+Hit:10 http://archive.ubuntu.com/ubuntu focal InRelease                                                                                                                 
+Hit:11 http://archive.ubuntu.com/ubuntu focal-updates InRelease                                                                                                         
+Hit:12 http://packages.linuxmint.com una Release                                                                                                                        
+Hit:13 http://archive.ubuntu.com/ubuntu focal-backports InRelease                                                                                                 
+Hit:14 http://apt.postgresql.org/pub/repos/apt focal-pgdg InRelease                                                                 
+Hit:16 http://archive.canonical.com/ubuntu focal InRelease                     
+Fetched 114 kB in 2s (52,7 kB/s)
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+8 packages can be upgraded. Run 'apt list --upgradable' to see them.
+HASILNYA TULISAN N HILANG
+
+
+

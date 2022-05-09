@@ -1,0 +1,26 @@
+outline:
+- init
+- fork/exec 
+- ps 
+- kill 
+- fg/bg/jobs 
+
+start a process:
+[command]
+
+replace current process with another process:
+exec [command]
+
+see process in your shell:
+ps -f
+
+kill process:
+kill -15 [pid]    <-- send sigterm
+kill     [pid]    <-- also send sigterm
+kill -2  [pid]    <-- send sigint 
+kill -1  [pid]    <-- send sighup
+kill -9  [pid]    <-- send sigkill
+
+
+suspend process running in foreground :
+ctrl - z
