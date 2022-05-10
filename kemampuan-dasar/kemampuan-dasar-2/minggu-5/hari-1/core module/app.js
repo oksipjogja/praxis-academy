@@ -31,13 +31,13 @@ const rl = readline.createInterface({
 rl.question('Masukan nama anda: ', (nama) => {
     rl.question('Masukan nomor hp Anda : ', (noHP) => {
         const contact = { nama, noHP };
-        const file = fs.readFileSync('data/constacts.json', 'utf8');
-        const contacts = JSON.parse(file);
+        const fileBuffer = fs.readFileSync('data/contacts.json', 'utf8');
+        const contacts = JSON.parse(fileBuffer);
 
         contacts.push(contact);
 
-        console.log(constacts)
-
+        fs.writeFileSync('data/contacts.json', JSON.stringify(contacts));
+        console.log('Matur nuwun sanget melu program niki')
         rl.close();
-    })
-})
+    });
+});
