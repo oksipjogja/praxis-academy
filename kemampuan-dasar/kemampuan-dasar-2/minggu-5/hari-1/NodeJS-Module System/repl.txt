@@ -1,0 +1,248 @@
+donie@donie-ThinkPad-T430:~$ pwd
+/home/donie
+donie@donie-ThinkPad-T430:~$ ls
+ anaconda3    'file lain-lain'			       Pictures
+ buildconfig   hello.js				       praxis-academy
+ cobamongo     Index				       pygame
+ deb	       main.save			       rm-joss
+ Desktop       mariadb_connector_python		       sandika-kolaborasi
+ development   mariadb-connector-python-1.1.0rc1       setup_pygame.py
+ docs	       mariadb-connector-python-1.1.0rc1.zip   Templates
+ Documents     Music				       test.js
+ Downloads     package-lock.json		       Videos
+donie@donie-ThinkPad-T430:~$ ll
+ll: command not found
+donie@donie-ThinkPad-T430:~$ node
+Welcome to Node.js v16.15.0.
+Type ".help" for more information.
+> 1+1
+2
+> 1 == '1'
+true
+> 1 === '1'
+false
+> const nama = 'donie'
+undefined
+> nama
+'donie'
+> const umur = 34
+undefined
+> umur
+34
+> umur++
+Uncaught TypeError: Assignment to constant variable.
+> umur + 1
+35
+> const sayHi = () => {
+... console.log(`Hi, nama saya ${nama}, saya ${umur} tahun.`);
+... }
+undefined
+> sayHi('donie');
+Hi, nama saya donie, saya 34 tahun.
+undefined
+> global
+<ref *1> Object [global] {
+  global: [Circular *1],
+  clearInterval: [Function: clearInterval],
+  clearTimeout: [Function: clearTimeout],
+  setInterval: [Function: setInterval],
+  setTimeout: [Function: setTimeout] {
+    [Symbol(nodejs.util.promisify.custom)]: [Getter]
+  },
+  queueMicrotask: [Function: queueMicrotask],
+  performance: Performance {
+    nodeTiming: PerformanceNodeTiming {
+      name: 'node',
+      entryType: 'node',
+      startTime: 0,
+      duration: 448285.01820099354,
+      nodeStart: 0.20205199718475342,
+      v8Start: 1.285315990447998,
+      bootstrapComplete: 34.917853996157646,
+      environment: 17.317465990781784,
+      loopStart: 112.07879999279976,
+      loopExit: -1,
+      idleTime: 447355.024455
+    },
+    timeOrigin: 1652151369984.347
+  },
+  clearImmediate: [Function: clearImmediate],
+  setImmediate: [Function: setImmediate] {
+    [Symbol(nodejs.util.promisify.custom)]: [Getter]
+  }
+}
+> global.
+global.__proto__             global.hasOwnProperty
+global.isPrototypeOf         global.propertyIsEnumerable
+global.toLocaleString        global.toString
+global.valueOf
+
+global.constructor
+
+global.AbortController       global.AbortSignal
+global.AggregateError        global.Array
+global.ArrayBuffer           global.Atomics
+global.BigInt                global.BigInt64Array
+global.BigUint64Array        global.Boolean
+global.Buffer                global.DataView
+global.Date                  global.Error
+global.EvalError             global.Event
+global.EventTarget           global.FinalizationRegistry
+global.Float32Array          global.Float64Array
+global.Function              global.Infinity
+global.Int16Array            global.Int32Array
+global.Int8Array             global.Intl
+global.JSON                  global.Map
+global.Math                  global.MessageChannel
+global.MessageEvent          global.MessagePort
+global.NaN                   global.Number
+global.Object                global.Promise
+global.Proxy                 global.RangeError
+global.ReferenceError        global.Reflect
+global.RegExp                global.Set
+global.SharedArrayBuffer     global.String
+global.Symbol                global.SyntaxError
+global.TextDecoder           global.TextEncoder
+global.TypeError             global.URIError
+global.URL                   global.URLSearchParams
+global.Uint16Array           global.Uint32Array
+global.Uint8Array            global.Uint8ClampedArray
+global.WeakMap               global.WeakRef
+global.WeakSet               global.WebAssembly
+global._                     global._error
+global.assert                global.async_hooks
+global.atob                  global.btoa
+global.buffer                global.child_process
+global.clearImmediate        global.clearInterval
+global.clearTimeout          global.cluster
+global.console               global.constants
+global.crypto                global.decodeURI
+global.decodeURIComponent    global.dgram
+global.diagnostics_channel   global.dns
+global.domain                global.encodeURI
+global.encodeURIComponent    global.escape
+global.eval                  global.events
+global.fs                    global.global
+global.globalThis            global.http
+global.http2                 global.https
+global.inspector             global.isFinite
+global.isNaN                 global.module
+global.net                   global.os
+global.parseFloat            global.parseInt
+global.path                  global.perf_hooks
+global.performance           global.process
+global.punycode              global.querystring
+global.queueMicrotask        global.readline
+global.repl                  global.require
+global.setImmediate          global.setInterval
+global.setTimeout            global.stream
+global.string_decoder        global.sys
+global.timers                global.tls
+global.trace_events          global.tty
+global.undefined             global.unescape
+global.url                   global.util
+global.v8                    global.vm
+global.wasi                  global.worker_threads
+global.zlib
+
+> .help
+.break    Sometimes you get stuck, this gets you out
+.clear    Alias for .break
+.editor   Enter editor mode
+.exit     Exit the REPL
+.help     Print this help message
+.load     Load JS from a file into the REPL session
+.save     Save all evaluated commands in this REPL session to a file
+
+Press Ctrl+C to abort current expression, Ctrl+D to exit the REPL
+> 
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+> 
+donie@donie-ThinkPad-T430:~$ node
+Welcome to Node.js v16.15.0.
+Type ".help" for more information.
+> 
+donie@donie-ThinkPad-T430:~$ vi coba.js
+donie@donie-ThinkPad-T430:~$ cat coba.js
+const nama = 'daoni';
+const umur = 35;
+
+
+donie@donie-ThinkPad-T430:~$ node
+Welcome to Node.js v16.15.0.
+Type ".help" for more information.
+> .load coba.js
+const nama = 'daoni';
+const umur = 35;
+ 
+ 
+ 
+undefined
+> nama
+'daoni'
+> umur
+35
+> 
+donie@donie-ThinkPad-T430:~$ rm coba.js
+donie@donie-ThinkPad-T430:~$ ls
+ anaconda3    'file lain-lain'			       Pictures
+ buildconfig   hello.js				       praxis-academy
+ cobamongo     Index				       pygame
+ deb	       main.save			       rm-joss
+ Desktop       mariadb_connector_python		       sandika-kolaborasi
+ development   mariadb-connector-python-1.1.0rc1       setup_pygame.py
+ docs	       mariadb-connector-python-1.1.0rc1.zip   Templates
+ Documents     Music				       test.js
+ Downloads     package-lock.json		       Videos
+donie@donie-ThinkPad-T430:~$ node
+Welcome to Node.js v16.15.0.
+Type ".help" for more information.
+> const nama = 'sando';
+undefined
+> const umur = 35;
+undefined
+> const sayHi = (nama, umur) => [
+... console.log(`Hi, nama saya ${nama}, saya ${umur} tahun.`)
+... };
+};
+^
+
+Uncaught SyntaxError: Unexpected token '}'
+> const sayHi = (nama, umur) => {
+... console.log(`Hi, nama saya ${nama}, saya ${umur} tahun.`)
+... };
+undefined
+> .save coba2.js
+Session saved to: coba2.js
+> 
+donie@donie-ThinkPad-T430:~$ cat coba2.js
+const nama = 'sando';
+const umur = 35;
+const sayHi = (nama, umur) => [
+console.log(`Hi, nama saya ${nama}, saya ${umur} tahun.`)
+};
+const sayHi = (nama, umur) => {
+console.log(`Hi, nama saya ${nama}, saya ${umur} tahun.`)
+};donie@donie-ThinkPad-T430:~$ vi coba2.js
+donie@donie-ThinkPad-T430:~$ cat coba2.js
+const nama = 'sando';
+const umur = 35;
+const sayHi = (nama, umur) => {
+console.log(`Hi, nama saya ${nama}, saya ${umur} tahun.`)
+};
+donie@donie-ThinkPad-T430:~$ node
+Welcome to Node.js v16.15.0.
+Type ".help" for more information.
+> const sayHi = (nama, umur) => {
+... .break
+> .editor
+// Entering editor mode (Ctrl+D to finish, Ctrl+C to cancel)
+const nama = 'daonie'
+const umur = 35;
+
+undefined
+> nama
+'daonie'
+> umur
+35
+> 
