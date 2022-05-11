@@ -24,7 +24,7 @@ const saveContact = (nama, email, noHP) => {
     const constacts = loadContact();
 
 
-    // cek validator email
+    // cek validator emailTornado
     if (email) {
         if (!validator.isEmail(email)) {
             console.log(
