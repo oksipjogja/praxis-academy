@@ -4,29 +4,72 @@ const contacts = require('./contacts');
 
 yargs.command({
 
-    command: 'add',
-    describe: 'Menambahkan contact baru',
+        command: 'add',
+        describe: 'Menambahkan contact baru',
+        builder: {
+            nama: {
+                describe: 'Nama lengkap',
+                demandOption: true,
+                type: 'string',
+            },
+            email: {
+                describe: 'Email',
+                demandOption: false,
+                type: 'string',
+            },
+            noHP: {
+                describe: 'No Handphone',
+                demandOption: true,
+                type: 'string',
+            },
+        },
+        handler(argv) {
+            contacts.saveContact(argv.nama, argv.email, argv.noHP);
+        },
+    })
+    .demandCommand();
+
+// menampikan daftar semua nama contact dan no handphone
+yargs.command({
+    command: 'list',
+    describe: 'Menampilkan daftar contact nama dan no handphone',
+    handler() {
+        contacts.listContact();
+    },
+});
+
+// menampilkan detail sebuah contact
+yargs.command({
+    command: 'detail',
+    describe: 'Menampilkan detail sebuah contact berdasarkan nama',
     builder: {
         nama: {
             describe: 'Nama lengkap',
             demandOption: true,
             type: 'string',
         },
-        email: {
-            describe: 'Email',
-            demandOption: false,
-            type: 'string',
-        },
-        noHP: {
-            describe: 'No Handphone',
+    },
+    handler(argv) {
+        contacts.detailContact(argv.nama);
+    },
+});
+
+// menghapus contact berdasarkan nama
+yargs.command({
+    command: 'remove',
+    describe: 'Menghapus sebuah contact berdasarkan nama',
+    builder: {
+        nama: {
+            describe: 'Nama lengkap',
             demandOption: true,
             type: 'string',
         },
     },
     handler(argv) {
-        contacts.saveContact(argv.nama, argv.email, argv.noHP);
+        contacts.removeContact(argv.nama);
     },
 });
+
 
 yargs.parse();
 

@@ -13,10 +13,16 @@ if (!fs.existsSync(dataPath)) {
     fs.writeFileSync(dataPath, '[]', 'utf-8');
 }
 
-const saveContact = (nama, email, noHP) => {
-    const contact = { nama, email, noHP };
+const loadContact = () => {
     const fileBuffer = fs.readFileSync('data/contacts.json', 'utf8');
     const contacts = JSON.parse(fileBuffer);
+    return contacts;
+}
+
+const saveContact = (nama, email, noHP) => {
+    const contact = { nama, email, noHP };
+    const constacts = loadContact();
+
 
     // cek validator email
     if (email) {
@@ -55,7 +61,52 @@ const saveContact = (nama, email, noHP) => {
     );
 };
 
-module.exports = { saveContact };
+const listContact = () => {
+    const contacts = loadContact();
+    console.log(
+        chalk.cyan.inverse.bold('Tampilan Data Contact Nama & No HP')
+    );
+    contacts.forEach((contact, i) => {
+        console.log(`${i + 1}. ${contact.nama} - ${contact.noHP}`);
+    });
+};
+
+const detailContact = (nama) => {
+    const contacts = loadContact();
+
+    const contact = contacts.find(
+        (contact) => contact.nama.toLowerCase() === nama.toLowerCase()
+    );
+    if (!contact) {
+        console.log(
+            chalk.red.inverse.bold(`${nama} tidak ditemukan`));
+        return false;
+    }
+    console.log(chalk.cyan.inverse.bold(contact.nama));
+    console.log(contact.noHP);
+    if (contact.email) {
+        console.log(contact.email);
+    }
+};
+
+const removeContact = (nama) => {
+    const contacts = loadContact();
+    const newContacts = contacts.filter(
+        (contact) => contact.nama.toLowerCase() !== nama.toLowerCase()
+    );
+    if (contacts.length === newContacts.length) {
+        console.log(
+            chalk.red.inverse.bold(`${nama} tidak ditemukan`));
+        return false;
+    }
+
+    fs.writeFileSync('data/contacts.json', JSON.stringify(newContacts));
+    console.log(
+        chalk.blue.inverse.bold(`data contact ${nama} berhasil dihapus`)
+    );
+};
+
+module.exports = { removeContact, detailContact, listContact, saveContact };
 
 
 
