@@ -19,7 +19,11 @@
                         <p class="card-text">
                             <%= contact.email %>
                         </p>
-                        <a href="/contact" class="card-link">&laquo; Wangsul nang pelataran contact</a>
+                        <a href="/contact/edit/<%= contact.nama %>" class="btn btn-info
+                            badge">ubah</a>
+                        <a href="/contact/delete/<%= contact.nama %>" class="btn btn-danger
+                            badge" onclick="return confirm('TENANE?');">hapus</a>
+                        <a href="/contact" class="card-link d-block mt-3">&laquo; Wangsul nang contact</a>
                     </div>
                 </div>
                 <% } %>
