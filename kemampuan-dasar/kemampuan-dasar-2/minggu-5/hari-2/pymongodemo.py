@@ -1,3 +1,4 @@
+from argparse import _MutuallyExclusiveGroup
 import pymongo
 
 client = pymongo.MongoClient()
@@ -14,5 +15,10 @@ print(client.list_database_names()) # ----> menampilkan list database (show dbs/
 
 # datalist = [{'nama' : 'gunawan', 'usia': 32}, {'nama': 'wawan', 'usia': 45}, {'nama': 'nuri', 'usia': 32}]
 # mycol.insert_many(datalist)
-
-
+mydb=client['OKSIPJOGJA']
+mycol  = mydb['OKSIPJOGJA']
+for x in mycol.find():
+    print(x)
+    
+    
+    
