@@ -1,4 +1,3 @@
-from argparse import _MutuallyExclusiveGroup
 import pymongo
 
 client = pymongo.MongoClient()
@@ -17,7 +16,7 @@ print(client.list_database_names()) # ----> menampilkan list database (show dbs/
 # ---- melakukan looping dari database ----
 mydb=client['OKSIPJOGJA']
 mycol  = mydb['DtlCont']
-for x in mycol.find({"jumlah anak":{"$gte" : "3"}}):
+for x in mycol.find({"jumlah anak":{"$gte" : "3"}}): # ---->$gte grater than equal (lebih besar atau sama dengan)
     print(x)
 # # outputnya ---> ['OKSIPJOGJA', 'admin', 'config', 'local', 'mydb']
 # {'_id': ObjectId('627f24bae6dc335eeff9c2af'), 'nama': 'Kenthir Widodo', 'alamat ': 'jalan senopati no 15 yogyakarta', 'pekerjaan': 'PNS', 'jumlah anak': '3', 'penghasilan': '5000000'}

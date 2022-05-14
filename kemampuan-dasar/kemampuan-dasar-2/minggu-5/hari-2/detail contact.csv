@@ -1,9 +1,9 @@
-nama,alamat ,pekerjaan,jumlah anak,penghasilan
-Kenthir Widodo,jalan senopati no 15 yogyakarta,PNS,3,5000000
-Waluyo Pangarep,Jalan maespati no 25B yogyakarta,wiraswasta,2,3000000
-Bandot Pamuji,jalan roesman no 9 yogyakarta,PNS,5,8000000
-Dobol Permadi,jalan ibu dahlan no 90 yogyakarta,Seniman,1,4000000
-Bagus Triatmojo,jalan surabaya no 45 yogyakarta,Seniman,2,9000000
-Djumadi Sumitro,jalan solo no 85 yogyakarta,Karyawan,1,5000000
-Djulianto Ramadani,jalan magelang no 38 yogyakarta,Karyawan,2,4500000
-Sumardi Duldani,jalan demangan no 21 yogyakarta,PNS,1,3000000
+_id,email,nama,nohp
+627dd85d842b87a01c399688,kemplung@gmail.com,Kenthir Widodo,85869784059
+627dd85d842b87a01c399689,wapang@gmail.com,Waluyo Pangarep,81226925266
+627dd85d842b87a01c39968a,bapam@gmail.com,Bandot Pamuji,82143844271
+627dd85d842b87a01c39968b,doper@gmail.com,Dobol Permadi,812345676222
+627dd85d842b87a01c39968c,batri@gmail.com,Bagus Triatmojo,85787566212
+627e024590bbf03d74da9b32,djutro@gmail.com,Djumadi Sumitro,85678273589
+627e079d90bbf03d74da9b33,djumad@gmail.com,Djulianto Ramadani,812226373628
+627e079d90bbf03d74da9b34,mardul@gmail.com,Sumardi Duldani,81223445669
