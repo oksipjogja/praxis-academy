@@ -1,0 +1,391 @@
+donie@donie-ThinkPad-T430:~$ mongo
+MongoDB shell version v5.0.8
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("77c32d16-5979-4c6e-bdf2-3df421123db7") }
+MongoDB server version: 5.0.8
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting: 
+        2022-05-13T10:59:16.369+07:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+        2022-05-13T10:59:17.718+07:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> show dbs
+OKSIPJOGJA  0.000GB
+admin       0.000GB
+config      0.000GB
+local       0.000GB
+> use OKSIPJOGJA
+switched to db OKSIPJOGJA
+> db.OKSIPJOGJA.find()
+{ "_id" : ObjectId("627dd85d842b87a01c399688"), "nama" : "Kenthir Widodo", "email" : "kemplung@gmail.com", "nohp" : "085869784059" }
+{ "_id" : ObjectId("627dd85d842b87a01c399689"), "nama" : "Waluyo Pangarep", "email" : "wapang@gmail.com", "nohp" : "081226925266" }
+{ "_id" : ObjectId("627dd85d842b87a01c39968a"), "nama" : "Bandot Pamuji", "email" : "bapam@gmail.com", "nohp" : "082143844271" }
+{ "_id" : ObjectId("627dd85d842b87a01c39968b"), "nama" : "Dobol Permadi", "email" : "doper@gmail.com", "nohp" : "0812345676222" }
+{ "_id" : ObjectId("627dd85d842b87a01c39968c"), "nama" : "Bagus Triatmojo", "email" : "batri@gmail.com", "nohp" : "085787566212" }
+> db.OKSIPJOGJA.insertOne({"nama" : "Djumadi Sumitro", "email" : "djutro@gmail.com", "nohp" : "085678273589"})
+{
+	"acknowledged" : true,
+	"insertedId" : ObjectId("627e024590bbf03d74da9b32")
+}
+> db.OKSIPJOGJA.insertMany([{"nama" : "Djulianto Ramadani", "email":"djumad@gmail.com", "nohp":"0812226373628"}, {"nama" : "Sumardi Duldani", "email":"mardul@gmail.com", "nohp":"081223445669"}])
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("627e079d90bbf03d74da9b33"),
+		ObjectId("627e079d90bbf03d74da9b34")
+	]
+}
+> db.OKSIPJOGJA.find()
+{ "_id" : ObjectId("627dd85d842b87a01c399688"), "nama" : "Kenthir Widodo", "email" : "kemplung@gmail.com", "nohp" : "085869784059" }
+{ "_id" : ObjectId("627dd85d842b87a01c399689"), "nama" : "Waluyo Pangarep", "email" : "wapang@gmail.com", "nohp" : "081226925266" }
+{ "_id" : ObjectId("627dd85d842b87a01c39968a"), "nama" : "Bandot Pamuji", "email" : "bapam@gmail.com", "nohp" : "082143844271" }
+{ "_id" : ObjectId("627dd85d842b87a01c39968b"), "nama" : "Dobol Permadi", "email" : "doper@gmail.com", "nohp" : "0812345676222" }
+{ "_id" : ObjectId("627dd85d842b87a01c39968c"), "nama" : "Bagus Triatmojo", "email" : "batri@gmail.com", "nohp" : "085787566212" }
+{ "_id" : ObjectId("627e024590bbf03d74da9b32"), "nama" : "Djumadi Sumitro", "email" : "djutro@gmail.com", "nohp" : "085678273589" }
+{ "_id" : ObjectId("627e079d90bbf03d74da9b33"), "nama" : "Djulianto Ramadani", "email" : "djumad@gmail.com", "nohp" : "0812226373628" }
+{ "_id" : ObjectId("627e079d90bbf03d74da9b34"), "nama" : "Sumardi Duldani", "email" : "mardul@gmail.com", "nohp" : "081223445669" }
+> exit
+bye
+donie@donie-ThinkPad-T430:~$ 
+
+MELAKUKAN CREATE DBS, COLL, INSERT langsung Ke Compass
+use("store")
+ db.inventory.insert(
+     [
+         {"item": "journal", "qty": 25, "tags": ["blank", "red"], "dim_cm": [14, 21]},
+         {"item": "notebook", "qty": 50, "tags": ["red", "blank"], "dim_cm": [14, 21]},
+         {
+             "item": "paper",
+             "qty": 100,
+             "tags": ["red", "blank", "plain"],
+             "dim_cm": [14, 21],
+         },
+         {"item": "planner", "qty": 75, "tags": ["blank", "red"], "dim_cm": [22.85, 30]},
+         {"item": "postcard", "qty": 45, "tags": ["blue"], "dim_cm": [10, 15.25]},
+     ]
+ )
+
+MELAKUKAN PENCARIAN DENGAN FIND()
+
+1. Match an Array
+cursor = db.inventory.find({"tags": ["red", "blank"]})
+outputnya :
+[
+  {
+    "_id": {
+      "$oid": "628082a354e9b580045bdb46"
+    },
+    "item": "notebook",
+    "qty": 50,
+    "tags": [
+      "red",
+      "blank"
+    ],
+    "dim_cm": [
+      14,
+      21
+    ]
+  }
+]
+
+cursor = db.inventory.find({"tags": {"$all": ["red", "blank"]}})
+outputnya:
+[
+  {
+    "_id": {
+      "$oid": "628082a354e9b580045bdb45"
+    },
+    "item": "journal",
+    "qty": 25,
+    "tags": [
+      "blank",
+      "red"
+    ],
+    "dim_cm": [
+      14,
+      21
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "628082a354e9b580045bdb46"
+    },
+    "item": "notebook",
+    "qty": 50,
+    "tags": [
+      "red",
+      "blank"
+    ],
+    "dim_cm": [
+      14,
+      21
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "628082a354e9b580045bdb47"
+    },
+    "item": "paper",
+    "qty": 100,
+    "tags": [
+      "red",
+      "blank",
+      "plain"
+    ],
+    "dim_cm": [
+      14,
+      21
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "628082a354e9b580045bdb48"
+    },
+    "item": "planner",
+    "qty": 75,
+    "tags": [
+      "blank",
+      "red"
+    ],
+    "dim_cm": [
+      22.85,
+      30
+    ]
+  }
+]
+
+3. Query an Array for an Element
+cursor = db.inventory.find({"tags": "red"})
+output nya:
+[
+  {
+    "_id": {
+      "$oid": "628082a354e9b580045bdb45"
+    },
+    "item": "journal",
+    "qty": 25,
+    "tags": [
+      "blank",
+      "red"
+    ],
+    "dim_cm": [
+      14,
+      21
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "628082a354e9b580045bdb46"
+    },
+    "item": "notebook",
+    "qty": 50,
+    "tags": [
+      "red",
+      "blank"
+    ],
+    "dim_cm": [
+      14,
+      21
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "628082a354e9b580045bdb47"
+    },
+    "item": "paper",
+    "qty": 100,
+    "tags": [
+      "red",
+      "blank",
+      "plain"
+    ],
+    "dim_cm": [
+      14,
+      21
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "628082a354e9b580045bdb48"
+    },
+    "item": "planner",
+    "qty": 75,
+    "tags": [
+      "blank",
+      "red"
+    ],
+    "dim_cm": [
+      22.85,
+      30
+    ]
+  }
+]
+
+cursor = db.inventory.find({"dim_cm": {"$gt": 25}})
+output nya :
+[
+  {
+    "_id": {
+      "$oid": "628082a354e9b580045bdb48"
+    },
+    "item": "planner",
+    "qty": 75,
+    "tags": [
+      "blank",
+      "red"
+    ],
+    "dim_cm": [
+      22.85,
+      30
+    ]
+  }
+]
+
+3. Specify Multiple Conditions for Array Elements
+        a. Query an Array with Compound Filter Conditions on the Array Elements
+cursor = db.inventory.find({"dim_cm": {"$gt": 15, "$lt": 20}})
+outputnya:
+[
+  {
+    "_id": {
+      "$oid": "628082a354e9b580045bdb45"
+    },
+    "item": "journal",
+    "qty": 25,
+    "tags": [
+      "blank",
+      "red"
+    ],
+    "dim_cm": [
+      14,
+      21
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "628082a354e9b580045bdb46"
+    },
+    "item": "notebook",
+    "qty": 50,
+    "tags": [
+      "red",
+      "blank"
+    ],
+    "dim_cm": [
+      14,
+      21
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "628082a354e9b580045bdb47"
+    },
+    "item": "paper",
+    "qty": 100,
+    "tags": [
+      "red",
+      "blank",
+      "plain"
+    ],
+    "dim_cm": [
+      14,
+      21
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "628082a354e9b580045bdb49"
+    },
+    "item": "postcard",
+    "qty": 45,
+    "tags": [
+      "blue"
+    ],
+    "dim_cm": [
+      10,
+      15.25
+    ]
+  }
+]
+
+        b. Query for an Array Element that Meets Multiple Criteria
+cursor = db.inventory.find({"dim_cm": {"$elemMatch": {"$gt": 22, "$lt": 30}}}
+outputnya :
+[
+  {
+    "_id": {
+      "$oid": "628082a354e9b580045bdb48"
+    },
+    "item": "planner",
+    "qty": 75,
+    "tags": [
+      "blank",
+      "red"
+    ],
+    "dim_cm": [
+      22.85,
+      30
+    ]
+  }
+]
+
+        c. Query for an Element by the Array Index Position
+cursor = db.inventory.find({"dim_cm.1": {"$gt": 25}})
+outputnya :
+
+[
+  {
+    "_id": {
+      "$oid": "628082a354e9b580045bdb48"
+    },
+    "item": "planner",
+    "qty": 75,
+    "tags": [
+      "blank",
+      "red"
+    ],
+    "dim_cm": [
+      22.85,
+      30
+    ]
+  }
+]
+
+        d. Query an Array by Array Length
+cursor = db.inventory.find({"tags": {"$size": 3}})      
+outputnya:
+[
+  {
+    "_id": {
+      "$oid": "628082a354e9b580045bdb47"
+    },
+    "item": "paper",
+    "qty": 100,
+    "tags": [
+      "red",
+      "blank",
+      "plain"
+    ],
+    "dim_cm": [
+      14,
+      21
+    ]
+  }
+]

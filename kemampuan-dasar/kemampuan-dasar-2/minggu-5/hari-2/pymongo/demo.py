@@ -1,6 +1,6 @@
 import pymongo
 
-client = pymongo.MongoClient()
+client = pymongo.MongoClient("OKSIPJOGJA")
 print(client.list_database_names()) # ----> menampilkan list database (show dbs/dlm terminal mongo)
 
 # MEMBUAT DATABASE DAN MEMBUAT COLLECTION SERTA INSERT 
@@ -14,16 +14,16 @@ print(client.list_database_names()) # ----> menampilkan list database (show dbs/
 # mycol.insert_many(datalist)
 
 # ---- melakukan looping dari database ----
-mydb=client['OKSIPJOGJA']
-mycol  = mydb['DtlCont']
-for x in mycol.find({"jumlah anak":{"$gte" : "3"}}): # ---->$gte grater than equal (lebih besar atau sama dengan)
-    print(x)
-# # outputnya ---> ['OKSIPJOGJA', 'admin', 'config', 'local', 'mydb']
-# {'_id': ObjectId('627f24bae6dc335eeff9c2af'), 'nama': 'Kenthir Widodo', 'alamat ': 'jalan senopati no 15 yogyakarta', 'pekerjaan': 'PNS', 'jumlah anak': '3', 'penghasilan': '5000000'}
-# {'_id': ObjectId('627f24bae6dc335eeff9c2b1'), 'nama': 'Bandot Pamuji', 'alamat ': 'jalan roesman no 9 yogyakarta', 'pekerjaan': 'PNS', 'jumlah anak': '5', 'penghasilan': '8000000'}
+# mydb=client['OKSIPJOGJA']
+# mycol  = mydb['DtlCont']
+# for x in mycol.find({"jumlah anak":{"$gte" : "3"}}): # ---->$gte grater than equal (lebih besar atau sama dengan)
+#     print(x)
+# # # outputnya ---> ['OKSIPJOGJA', 'admin', 'config', 'local', 'mydb']
+# # {'_id': ObjectId('627f24bae6dc335eeff9c2af'), 'nama': 'Kenthir Widodo', 'alamat ': 'jalan senopati no 15 yogyakarta', 'pekerjaan': 'PNS', 'jumlah anak': '3', 'penghasilan': '5000000'}
+# # {'_id': ObjectId('627f24bae6dc335eeff9c2b1'), 'nama': 'Bandot Pamuji', 'alamat ': 'jalan roesman no 9 yogyakarta', 'pekerjaan': 'PNS', 'jumlah anak': '5', 'penghasilan': '8000000'}
     
-mydb = client["OKSIPJOGJA"]
-mycol = mydb["DtlCont"]
+# mydb = client["OKSIPJOGJA"]
+# mycol = mydb["DtlCont"]
 # for x in mycol.find():
 #     print(x)
 # outputnya ---> ['OKSIPJOGJA', 'admin', 'config', 'local', 'mydb']
@@ -54,8 +54,8 @@ mycol = mydb["DtlCont"]
 # {'nama': 'Dobol Permadi', 'pekerjaan': 'Seniman'}
 # {'nama': 'Bagus Triatmojo', 'pekerjaan': 'Seniman'}
    
-for x in mycol.find({"pekerjaan":"Karyawan"}, {"_id":0, "nama":1, "pekerjaan":1 }):
-    print(x)   
+# for x in mycol.find({"pekerjaan":"Karyawan"}, {"_id":0, "nama":1, "pekerjaan":1 }):
+#     print(x)   
 # output --->
 # {'nama': 'Djumadi Sumitro', 'pekerjaan': 'Karyawan'}
 # {'nama': 'Djulianto Ramadani', 'pekerjaan': 'Karyawan'}
