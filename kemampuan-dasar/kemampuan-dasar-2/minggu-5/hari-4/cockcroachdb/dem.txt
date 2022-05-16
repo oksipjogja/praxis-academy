@@ -1,0 +1,283 @@
+(base) donie@donie-ThinkPad-T430:~$ sudo cockroach demo
+#
+# Welcome to the CockroachDB demo database!
+#
+# You are connected to a temporary, in-memory CockroachDB cluster of 1 node.
+#
+# This demo session will attempt to enable enterprise features
+# by acquiring a temporary license from Cockroach Labs in the background.
+# To disable this behavior, set the environment variable
+# COCKROACH_SKIP_ENABLING_DIAGNOSTIC_REPORTING=true.
+#
+# Beginning initialization of the movr dataset, please wait...
+#
+# The cluster has been preloaded with the "movr" dataset
+# (MovR is a fictional vehicle sharing company).
+#
+# Reminder: your changes to data stored in the demo session will not be saved!
+#
+# If you wish to access this demo cluster using another tool, you will need
+# the following details:
+#
+#   - Connection parameters:
+#     (webui)    http://127.0.0.1:8080/demologin?password=demo16406&username=demo
+#     (sql)      postgresql://demo:demo16406@127.0.0.1:26257/movr?sslmode=require
+#     (sql/jdbc) jdbc:postgresql://127.0.0.1:26257/movr?password=demo16406&sslmode=require&user=demo
+#     (sql/unix) postgresql://demo:demo16406@/movr?host=%2Ftmp%2Fdemo130644333&port=26257
+#   
+#   - Username: "demo", password: "demo16406"
+#   - Directory with certificate files (for certain SQL drivers/tools): /tmp/demo130644333
+#
+# Server version: CockroachDB CCL v21.2.10 (x86_64-unknown-linux-gnu, built 2022/05/02 17:38:58, go1.16.6) (same version as client)
+# Cluster ID: b84417d9-63bc-4db9-bbfe-cd0759fc9fbe
+# Organization: Cockroach Demo
+No entry for terminal type "xterm-256color";
+using dumb terminal settings.
+#
+# Enter \? for a brief introduction.
+#
+demo@127.0.0.1:26257/movr> show tables;
+  schema_name |         table_name         | type  | owner | estimated_row_count | locality
+--------------+----------------------------+-------+-------+---------------------+-----------
+  public      | promo_codes                | table | demo  |                   0 | NULL
+  public      | rides                      | table | demo  |                   0 | NULL
+  public      | user_promo_codes           | table | demo  |                   0 | NULL
+  public      | users                      | table | demo  |                   0 | NULL
+  public      | vehicle_location_histories | table | demo  |                   0 | NULL
+  public      | vehicles                   | table | demo  |                   0 | NULL
+(6 rows)
+
+
+Time: 29ms total (execution 28ms / network 0ms)
+
+demo@127.0.0.1:26257/movr> CREATE TABLE drivers (
+    id UUID NOT NULL,
+    city STRING NOT NULL,
+    name STRING,
+    dl STRING UNIQUE,
+    address STRING,
+    CONSTRAINT "primary" PRIMARY KEY (city ASC, id ASC)
+);
+CREATE TABLE
+
+
+Time: 13ms total (execution 12ms / network 1ms)
+
+demo@127.0.0.1:26257/movr> CREATE TABLE IF NOT EXISTS drivers (
+    id UUID NOT NULL,
+    city STRING NOT NULL,
+    name STRING,
+    dl STRING UNIQUE,
+    address STRING,
+    CONSTRAINT "primary" PRIMARY KEY (city ASC, id ASC)
+);
+NOTICE: relation "drivers" already exists, skipping
+CREATE TABLE
+
+
+Time: 4ms total (execution 4ms / network 1ms)
+
+demo@127.0.0.1:26257/movr> SHOW COLUMNS FROM drivers;
+  column_name | data_type | is_nullable | column_default | generation_expression |         indices          | is_hidden
+--------------+-----------+-------------+----------------+-----------------------+--------------------------+------------
+  id          | UUID      |    false    | NULL           |                       | {drivers_dl_key,primary} |   false
+  city        | STRING    |    false    | NULL           |                       | {drivers_dl_key,primary} |   false
+  name        | STRING    |    true     | NULL           |                       | {primary}                |   false
+  dl          | STRING    |    true     | NULL           |                       | {drivers_dl_key,primary} |   false
+  address     | STRING    |    true     | NULL           |                       | {primary}                |   false
+(5 rows)
+
+
+Time: 66ms total (execution 66ms / network 0ms)
+
+demo@127.0.0.1:26257/movr> INSERT INTO drivers VALUES
+    ('c28f5c28-f5c2-4000-8000-000000000026', 'new york', 'Petee', 'ABC-1234', '101 5th Ave');
+INSERT 1
+
+
+Time: 3ms total (execution 3ms / network 0ms)
+
+demo@127.0.0.1:26257/movr> INSERT INTO drivers (name, city, dl, address, id) VALUES
+    ('Adam Driver', 'chicago', 'DEF-5678', '201 E Randolph St', '1eb851eb-851e-4800-8000-000000000006');
+INSERT 1
+
+
+Time: 1ms total (execution 1ms / network 0ms)
+
+demo@127.0.0.1:26257/movr> INSERT INTO drivers VALUES
+    ('8a3d70a3-d70a-4000-8000-00000000001b', 'seattle', 'Eric', 'GHI-9123', '400 Broad St'),
+    ('9eb851eb-851e-4800-8000-00000000001f', 'new york', 'Harry Potter', 'JKL-456', '214 W 43rd St');
+INSERT 2
+
+
+Time: 3ms total (execution 3ms / network 0ms)
+
+demo@127.0.0.1:26257/movr> INSERT INTO drivers (id, city) VALUES
+    ('70a3d70a-3d70-4400-8000-000000000016', 'chicago');
+INSERT 1
+
+
+Time: 5ms total (execution 4ms / network 1ms)
+
+demo@127.0.0.1:26257/movr> INSERT INTO drivers (id, city, name, dl, address) VALUES
+    ('b851eb85-1eb8-4000-8000-000000000024', 'seattle', DEFAULT, DEFAULT, DEFAULT);
+INSERT 1
+
+
+Time: 2ms total (execution 2ms / network 0ms)
+
+demo@127.0.0.1:26257/movr> SELECT * FROM drivers WHERE id in ('70a3d70a-3d70-4400-8000-000000000016', 'b851eb85-1eb8-4000-8000-000000000024');
+                   id                  |  city   | name |  dl  | address
+---------------------------------------+---------+------+------+----------
+  70a3d70a-3d70-4400-8000-000000000016 | chicago | NULL | NULL | NULL
+  b851eb85-1eb8-4000-8000-000000000024 | seattle | NULL | NULL | NULL
+(2 rows)
+
+
+Time: 4ms total (execution 3ms / network 1ms)
+
+demo@127.0.0.1:26257/movr> CREATE INDEX name_idx ON users (name DESC);
+CREATE INDEX
+
+
+Time: 305ms total (execution 305ms / network 0ms)
+
+demo@127.0.0.1:26257/movr> CREATE TABLE IF NOT EXISTS drivers (
+    id UUID NOT NULL,
+    city STRING NOT NULL,
+    name STRING,
+    dl STRING,
+    address STRING,
+    INDEX name_idx (name),
+    CONSTRAINT "primary" PRIMARY KEY (city ASC, id ASC)
+);
+NOTICE: relation "drivers" already exists, skipping
+CREATE TABLE
+
+
+Time: 5ms total (execution 4ms / network 1ms)
+
+demo@127.0.0.1:26257/movr> SHOW INDEX FROM users;
+  table_name | index_name | non_unique | seq_in_index | column_name | direction | storing | implicit
+-------------+------------+------------+--------------+-------------+-----------+---------+-----------
+  users      | name_idx   |    true    |            1 | name        | DESC      |  false  |  false
+  users      | name_idx   |    true    |            2 | city        | ASC       |  false  |   true
+  users      | name_idx   |    true    |            3 | id          | ASC       |  false  |   true
+  users      | primary    |   false    |            1 | city        | ASC       |  false  |  false
+  users      | primary    |   false    |            2 | id          | ASC       |  false  |  false
+  users      | primary    |   false    |            3 | name        | N/A       |  true   |  false
+  users      | primary    |   false    |            4 | address     | N/A       |  true   |  false
+  users      | primary    |   false    |            5 | credit_card | N/A       |  true   |  false
+(8 rows)
+
+
+Time: 16ms total (execution 16ms / network 0ms)
+
+demo@127.0.0.1:26257/movr> SELECT name FROM users LIMIT 10;
+        name
+---------------------
+  William Wood
+  Victoria Jennings
+  Tyler Dalton
+  Tony Ortiz
+  Tina Miller
+  Taylor Cunningham
+  Susan Morse
+  Steven Lara
+  Stephen Diaz
+  Sarah Wang DDS
+(10 rows)
+
+
+Time: 2ms total (execution 2ms / network 0ms)
+
+demo@127.0.0.1:26257/movr> SELECT * FROM users LIMIT 10;
+                   id                  |   city    |        name         |            address            | credit_card
+---------------------------------------+-----------+---------------------+-------------------------------+--------------
+  ae147ae1-47ae-4800-8000-000000000022 | amsterdam | Tyler Dalton        | 88194 Angela Gardens Suite 94 | 4443538758
+  b3333333-3333-4000-8000-000000000023 | amsterdam | Dillon Martin       | 29590 Butler Plain Apt. 25    | 3750897994
+  b851eb85-1eb8-4000-8000-000000000024 | amsterdam | Deborah Carson      | 32768 Eric Divide Suite 88    | 8107478823
+  bd70a3d7-0a3d-4000-8000-000000000025 | amsterdam | David Stanton       | 80015 Mark Views Suite 96     | 3471210499
+  c28f5c28-f5c2-4000-8000-000000000026 | amsterdam | Maria Weber         | 14729 Karen Radial            | 5844236997
+  1eb851eb-851e-4800-8000-000000000006 | boston    | Brian Campbell      | 92025 Yang Village            | 9016427332
+  23d70a3d-70a3-4800-8000-000000000007 | boston    | Carl Mcguire        | 60124 Palmer Mews Apt. 49     | 4566257702
+  28f5c28f-5c28-4600-8000-000000000008 | boston    | Jennifer Sanders    | 19121 Padilla Brooks Apt. 12  | 1350968125
+  2e147ae1-47ae-4400-8000-000000000009 | boston    | Cindy Medina        | 31118 Allen Gateway Apt. 60   | 6464362441
+  33333333-3333-4400-8000-00000000000a | boston    | Daniel Hernandez MD | 51438 Janet Valleys           | 0904722368
+(10 rows)
+
+
+Time: 3ms total (execution 2ms / network 1ms)
+
+demo@127.0.0.1:26257/movr> SELECT id, name FROM users WHERE city = 'san francisco';
+                   id                  |       name
+---------------------------------------+-------------------
+  75c28f5c-28f5-4400-8000-000000000017 | William Wood
+  7ae147ae-147a-4000-8000-000000000018 | Alfred Garcia
+  80000000-0000-4000-8000-000000000019 | Matthew Clay
+  851eb851-eb85-4000-8000-00000000001a | Samantha Coffey
+  8a3d70a3-d70a-4000-8000-00000000001b | Jessica Martinez
+(5 rows)
+
+
+Time: 3ms total (execution 2ms / network 0ms)
+
+demo@127.0.0.1:26257/movr> SELECT city, type, current_location FROM vehicles ORDER BY city, type DESC;
+      city      |    type    |        current_location
+----------------+------------+---------------------------------
+  amsterdam     | scooter    | 62609 Stephanie Route
+  amsterdam     | scooter    | 57637 Mitchell Shoals Suite 59
+  boston        | scooter    | 19659 Christina Ville
+  boston        | scooter    | 47259 Natasha Cliffs
+  los angeles   | scooter    | 43051 Jonathan Fords Suite 36
+  new york      | skateboard | 64110 Richard Crescent
+  new york      | scooter    | 86667 Edwards Valley
+  paris         | skateboard | 19202 Edward Pass
+  paris         | skateboard | 2505 Harrison Parkway Apt. 89
+  rome          | bike       | 64935 Matthew Flats Suite 55
+  san francisco | skateboard | 49164 Anna Mission Apt. 38
+  san francisco | skateboard | 69721 Noah River
+  seattle       | skateboard | 81472 Morris Run
+  seattle       | scooter    | 91427 Steven Spurs Apt. 49
+  washington dc | bike       | 37754 Farmer Extension
+(15 rows)
+
+
+Time: 5ms total (execution 4ms / network 1ms)
+
+demo@127.0.0.1:26257/movr> UPDATE promo_codes SET (description, rules) = ('EXPIRED', '{"type": "percent_discount", "value": "0%"}') WHERE expiration_time < '2019-01-22 0
+3:04:05+00:00';
+UPDATE 669
+
+
+Time: 19ms total (execution 19ms / network 0ms)
+
+demo@127.0.0.1:26257/movr> SELECT code, description, rules FROM promo_codes LIMIT 10;
+             code            | description |                    rules
+-----------------------------+-------------+----------------------------------------------
+  0_explain_theory_something | EXPIRED     | {"type": "percent_discount", "value": "0%"}
+  100_address_garden_certain | EXPIRED     | {"type": "percent_discount", "value": "0%"}
+  101_system_skin_night      | EXPIRED     | {"type": "percent_discount", "value": "0%"}
+  102_card_professional_kid  | EXPIRED     | {"type": "percent_discount", "value": "0%"}
+  103_now_project_focus      | EXPIRED     | {"type": "percent_discount", "value": "0%"}
+  104_long_become_prove      | EXPIRED     | {"type": "percent_discount", "value": "0%"}
+  105_republican_guess_arm   | EXPIRED     | {"type": "percent_discount", "value": "0%"}
+  106_court_especially_plan  | EXPIRED     | {"type": "percent_discount", "value": "0%"}
+  107_she_matter_ten         | EXPIRED     | {"type": "percent_discount", "value": "0%"}
+  108_wind_marriage_for      | EXPIRED     | {"type": "percent_discount", "value": "0%"}
+(10 rows)
+
+
+Time: 3ms total (execution 2ms / network 1ms)
+
+demo@127.0.0.1:26257/movr> DELETE FROM promo_codes WHERE description = 'EXPIRED';
+DELETE 669
+
+
+Time: 17ms total (execution 16ms / network 0ms)
+
+demo@127.0.0.1:26257/movr> DROP TABLE drivers;
+DROP TABLE
+
+
+Time: 59ms total (execution 59ms / network 0ms)
