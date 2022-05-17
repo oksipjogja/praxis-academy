@@ -1,0 +1,90 @@
+(base) donie@donie-ThinkPad-T430:~$ sudo systemctl is-active postgresql
+[sudo] password for donie:          
+active
+(base) donie@donie-ThinkPad-T430:~$ sudo systemctl is-enable postgresql
+Unknown operation is-enable.
+(base) donie@donie-ThinkPad-T430:~$ sudo systemctl status postgresql
+● postgresql.service - PostgreSQL RDBMS
+     Loaded: loaded (/lib/systemd/system/postgresql.service; enabled; vendor pr>
+     Active: active (exited) since Mon 2022-05-16 19:01:48 WIB; 5h 10min ago
+   Main PID: 1470 (code=exited, status=0/SUCCESS)
+      Tasks: 0 (limit: 11485)
+     Memory: 0B
+     CGroup: /system.slice/postgresql.service
+
+May 16 19:01:48 donie-ThinkPad-T430 systemd[1]: Starting PostgreSQL RDBMS...
+May 16 19:01:48 donie-ThinkPad-T430 systemd[1]: Finished PostgreSQL RDBMS.
+(base) donie@donie-ThinkPad-T430:~$ sudo pg_isready
+/var/run/postgresql:5432 - accepting connections
+(base) donie@donie-ThinkPad-T430:~$ sudo -u postgres psql  ----> untuk masuk postgresql
+psql (12.10 (Ubuntu 12.10-0ubuntu0.20.04.1), server 11.15 (Ubuntu 11.15-2.pgdg20.04+1))
+Type "help" for help.
+
+postgres=# 
+postgres=# CREATE USER oksipjogja WITH PASSWORD 'password';
+CREATE ROLE
+postgres=# CREATE DATABASE dbtest;
+CREATE DATABASE
+postgres=# GRANT ALL PREVILEGES ON DATABASE dbtest TO oksipjogja;
+ERROR:  syntax error at or near "PREVILEGES"
+LINE 1: GRANT ALL PREVILEGES ON DATABASE dbtest TO oksipjogja;
+                  ^
+postgres=# 
+postgres=# GRANT ALL PREVILEGES ON DATABASE dbtest TO oksipjogja;
+ERROR:  syntax error at or near "PREVILEGES"
+LINE 1: GRANT ALL PREVILEGES ON DATABASE dbtest TO oksipjogja;
+                  ^
+postgres=# \q
+(base) donie@donie-ThinkPad-T430:~$ sudo -u postgres createuser --interactive
+Enter name of role to add: oksipjogja
+Shall the new role be a superuser? (y/n) y
+createuser: creation of new role failed: ERROR:  role "oksipjogja" already exists
+(base) donie@donie-ThinkPad-T430:~$ sudo -u postgres createuser --interactive
+Enter name of role to add: admindb
+Shall the new role be a superuser? (y/n) y
+(base) donie@donie-ThinkPad-T430:~$ psql
+psql: error: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  role "donie" does not exist
+(base) donie@donie-ThinkPad-T430:~$ adduser admindb
+adduser: Only root may add a user or group to the system.
+(base) donie@donie-ThinkPad-T430:~$ sudo -i
+root@donie-ThinkPad-T430:~# adduser admindb
+Adding user `admindb' ...
+Adding new group `admindb' (1003) ...
+Adding new user `admindb' (1003) with group `admindb' ...
+Creating home directory `/home/admindb' ...
+Copying files from `/etc/skel' ...
+New password: 
+Retype new password: 
+No password supplied
+New password: 
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for admindb
+Enter the new value, or press ENTER for the default
+	Full Name []: 
+	Room Number []: 
+	Work Phone []: 
+	Home Phone []: 
+	Other []: 
+Is the information correct? [Y/n] y
+root@donie-ThinkPad-T430:~# su -l admindb
+admindb@donie-ThinkPad-T430:~$ psql
+psql: error: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  database "admindb" does not exist  ---> gagal karena harus membuat dtabs dg nama admindb
+admindb@donie-ThinkPad-T430:~$ logout
+root@donie-ThinkPad-T430:~# sudo -u postgres createdb admindb
+could not change directory to "/root": Permission denied
+root@donie-ThinkPad-T430:~# su -l admindb
+admindb@donie-ThinkPad-T430:~$ psql
+psql (12.10 (Ubuntu 12.10-0ubuntu0.20.04.1), server 11.15 (Ubuntu 11.15-2.pgdg20.04+1))
+Type "help" for help.
+
+admindb=# \q ----> keluar dari dtbs
+admindb@donie-ThinkPad-T430:~# logout
+root@donie-ThinkPad-T430:su -l admindb
+admindb@donie-ThinkPad-T430:~# psql -d dbtest
+psql (12.10 (Ubuntu 12.10-0ubuntu0.20.04.1), server 11.15 (Ubuntu 11.15-2.pgdg20.04+1))
+Type "help" for help.
+dbtest=# dbtest-# \conninfo ---> cek info connection
+You are connected to database "dbtest" as user "admindb" via socket in "/var/run/postgresql" at port "5432".
+
+

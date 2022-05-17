@@ -59,6 +59,15 @@ print(client.list_database_names()) # ----> menampilkan list database (show dbs/
 # output --->
 # {'nama': 'Djumadi Sumitro', 'pekerjaan': 'Karyawan'}
 # {'nama': 'Djulianto Ramadani', 'pekerjaan': 'Karyawan'}
+# 
+# ~$ sudo mongod --repair --dbpath /var/lib/mongodb
+
+# ~$ sudo mongod --fork --logpath /var/lib/mongodb/mongodb.log --dbpath /var/lib/mongodb
+
+# ~$ sudo service mongodb start
+
+
+
     
     
     
