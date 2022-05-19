@@ -52,6 +52,7 @@ printer = pprint.PrettyPrinter()
 
 def find_all_orang():
   orang = karyawan_col.find()
+  print(list(orang))
   
   for karyawan in orang:
     printer.pprint(karyawan)
