@@ -1,3 +1,4 @@
+from bson import ObjectId
 from dotenv import load_dotenv, find_dotenv
 import os
 import pprint
@@ -20,7 +21,7 @@ client = MongoClient(connection_string)
 # print(col) outputnya -> ["'gudang'"]
 
 # def insert_app_doc():clear
-
+# fungsi insertOne
 #   collection = perpustakaan_db.katalog
 #   app_document = {
 #     "Judul" : "Wanda Hamidah Lagi Ngoding",
@@ -32,8 +33,9 @@ client = MongoClient(connection_string)
 
 pabrik = client.pabrik
 karyawan_col = pabrik.karyawan
-
 def buat_document():
+
+# fungsi insertMany
   first_names = ["Dela", "Suwarno", "Wagiman", "Subagyo", "Parjiman", "Hendi"]
   last_names = ["Suwarni", "Hadiprawiro", "Harjolukito", "Makarti", "Suryodiningrat", "Oktavianus"]
   ages = [35, 40, 32, 33, 30, 25]
@@ -48,14 +50,22 @@ def buat_document():
   
 buat_document()
 
+
+### Fungsi find_all
 printer = pprint.PrettyPrinter()
 
-def find_all_orang():
-  orang = karyawan_col.find()
-  print(list(orang))
+# def find_all_orang():
+#   orang = karyawan_col.find()
+#   print(list(orang))
   
-  for karyawan in orang:
-    printer.pprint(karyawan)
+#   for karyawan in orang:
+#     printer.pprint(karyawan)
     
-find_all_orang()
+# find_all_orang()
   
+
+def find__id():
+  _id = karyawan_col.find_one({ "_id" : ObjectId("6285d3eb8e7d281c4f7528ea") })
+  printer.pprint(_id)
+  
+find__id()
