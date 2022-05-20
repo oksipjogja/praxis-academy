@@ -1,8 +1,6 @@
-// install express-- > npm i express @4 .17 .1
-// template engine ejs-- > npm i ejs @3 .1 .6
-// install express layouts-- > npm i express - ejs - layouts @2 .5 .0
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
+
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
@@ -67,6 +65,7 @@ app.get('/contact', async(req, res) => {
     // Contact.find().then((contact) => {
     //     res.send(contact);
     // });
+
     const contacts = await Contact.find();
 
     res.render('contact', {
@@ -89,5 +88,41 @@ app.get('/contact/:nama', async(req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Mongo Contact App | Listening at hhtp://localhost:${port}`);
+    console.log(`Mongo Contact App | Listening at http://localhost:${port}`);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// install express-- > npm i express @4 .17 .1
+// template engine ejs-- > npm i ejs @3 .1 .6
+// install express layouts-- > npm i express - ejs - layouts @2 .5 .0
