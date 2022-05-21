@@ -33,39 +33,56 @@ client = MongoClient(connection_string)
 
 pabrik = client.pabrik
 karyawan_col = pabrik.karyawan
-def buat_document():
+# def buat_document():
 
-# fungsi insertMany
-  first_names = ["Dela", "Suwarno", "Wagiman", "Subagyo", "Parjiman", "Hendi"]
-  last_names = ["Suwarni", "Hadiprawiro", "Harjolukito", "Makarti", "Suryodiningrat", "Oktavianus"]
-  ages = [35, 40, 32, 33, 30, 25]
+# # fungsi insertMany
+#   first_names = ["Dela", "Suwarno", "Wagiman", "Subagyo", "Parjiman", "Hendi"]
+#   last_names = ["Suwarni", "Hadiprawiro", "Harjolukito", "Makarti", "Suryodiningrat", "Oktavianus"]
+#   ages = [35, 40, 32, 33, 30, 25]
   
-  docs = []
+#   docs = []
 
-  for first_name, last_name, age in zip(first_names, last_names, ages):
-    doc = {"first_name" : first_name, "last_name" : last_name, "age" : age}
-    docs.append(doc)
+#   for first_name, last_name, age in zip(first_names, last_names, ages):
+#     doc = {"first_name" : first_name, "last_name" : last_name, "age" : age}
+#     docs.append(doc)
     
-  karyawan_col.insert_many(docs)
+#   karyawan_col.insert_many(docs)
   
-buat_document()
+# buat_document()
 
 
 ### Fungsi find_all
 printer = pprint.PrettyPrinter()
 
+# METHOD DEF FIND_ALL_n()
+   #  CARA 1 : FIND ALL
 # def find_all_orang():
 #   orang = karyawan_col.find()
-#   print(list(orang))
+#   # print(list(orang))
   
 #   for karyawan in orang:
 #     printer.pprint(karyawan)
     
 # find_all_orang()
   
-
-def find__id():
-  _id = karyawan_col.find_one({ "_id" : ObjectId("6285d3eb8e7d281c4f7528ea") })
-  printer.pprint(_id)
+  # CARA 2 : FIND__id
+# def find__id():
+#   _id = karyawan_col.find_one({ "_id" : ObjectId("6285d3eb8e7d281c4f7528ea") })
+#   printer.pprint(_id)
   
-find__id()
+# find__id()
+
+#   # CARA 3 : FIND_NAME
+# def find_dela():
+#   dela = karyawan_col.find_one({"first_name":"Dela"})
+#   printer.pprint(dela)
+  
+# find_dela()
+
+# def count_all_orang():
+#   count = karyawan_col.count_documents(filter={})
+#   print("Jumlah karyawan : ", count)
+  
+# count_all_orang()
+
+
