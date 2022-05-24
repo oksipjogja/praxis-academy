@@ -1,11 +1,27 @@
-from flask import Flask, render_template
-from flask_pymongo import PyMongo 
-app = Flask(__name__)
-app.config["MONGO_URI"] = "mongodb://localhost:27017/kampus"
-mongo = PyMongo(app)
+from flask import Flask, render_template, request, url_for, redirect
+from pymongo import MongoClient
+from bson.objectid import ObjectId
 
-@app.route("/")
-def home_page():
-  online_users = mongo.db.users.find({"online": True})
-  return render_template("index.html", online_users=online_users)
-  
+app = Flask(__name__)
+
+client = MongoClient('localhost', 27017)
+
+db = client.flask_db
+todos = db.Todos
+
+@app.route('/', methods=('GET','POST'))
+def index():
+  if request.method=='POST':
+        content = request.form['content']
+        degree = request.form['degree']
+        todos.insert_one({'content': content, 'degree': degree})
+        return redirect(url_for('index'))
+      
+  all_todos = todos.find()
+  return render_template('index.html')
+
+
+@app.post('/<id>/delete/')
+def delete(id):
+    todos.delete_one({"_id": ObjectId(id)})
+    return redirect(url_for('index'))
