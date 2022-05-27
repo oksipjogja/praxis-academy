@@ -1,12 +1,12 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify
 
 class User:
   def signup(self):
-     user = {
-       "id": "",
-       "name": request.form.get('name'),
-       "email": request.form.get('email'), 
-       "password": request.form.get('password')
-     }
-     
-     return jsonify(user), 200
+    user = {
+      "_id": "",
+      "name": "",
+      "email": "",
+      "password": ""
+    }
+    
+    return jsonify(user), 200
