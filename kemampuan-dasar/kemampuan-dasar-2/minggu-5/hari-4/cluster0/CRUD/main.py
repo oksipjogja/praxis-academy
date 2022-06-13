@@ -169,10 +169,101 @@ printer = pprint.PrettyPrinter()
 #     "$rename": {"first_name": "first", "last_name": "last"}
 #   }
 #   karyawan_col.update_one({"_id": _id}, all_update)
-  
-#   update_person_by_id("6286a871cedb34fcf2215aad")
+# update_person_by_id("6286a871cedb34fcf2215aad")
 # ===>
 # _id: ObjectId('6286a871cedb34fcf2215aad')  --> _id: ObjectId('6286a871cedb34fcf2215aad')    
 # first_name: "Parjiman"                     --> first: "Parjiman"
 # last_name: "Suryodiningrat"                --> last: "Suryodiningrat"
 # age: 30                                    --> age: 31
+
+# def update_person_by_id(karyawan_id):
+#   from bson.objectid import ObjectId
+  
+#   _id = ObjectId(karyawan_id)
+#   karyawan_col.update_one({"_id": _id}, {"$unset": {"new_field": ""}}) # ---> mengembalikan ke semula
+# update_person_by_id("6286a871cedb34fcf2215aad")
+# ===> kembali seperti semula
+
+# def replace_one(karyawan_id):
+#   from bson.objectid import ObjectId
+#   _id = ObjectId(karyawan_id)
+  
+#   new_doc = {
+#     "first_name" : "new first name",
+#     "last_name" : "new last name",
+#     "age" : 100
+#   }
+#   karyawan_col.replace_one({"_id": _id}, new_doc)
+  
+# replace_one("6286a871cedb34fcf2215aad")
+# ===>
+# _id: ObjectId('6286a871cedb34fcf2215aad')   ----  _id: ObjectId('6286a871cedb34fcf2215aad')
+# first_name: "Parjiman"                      ----  first_name: "new first name"
+# last_name: "Suryodiningrat"                 ----  last_name: "new last name" 
+# age: 30                                     ----  age: 100
+
+# def delete_doc_by_id(karyawan_id):
+#   from bson.objectid import ObjectId
+#   _id = ObjectId(karyawan_id)
+#   karyawan_col.delete_one({"_id": _id})
+  
+# delete_doc_by_id("6286a871cedb34fcf2215aad")
+# ---> delete success _id : "6286a871cedb34fcf2215aad" its doesn't exist anymore
+
+# ---------------Menambah Data Array -------------------------------------
+alamat = {
+  "_id": "6286a871cedb34fcf2215aad",
+  "jalan": "Jalak Raya",
+  "nomer": 15,
+  "kota": "Magetan",
+  "negara": "Indonesia",
+  "kode_pos": "52165"
+}
+# METODE 1
+# def tambah_alamat_embed(karyawan_id, alamat):
+#   from bson.objectid import ObjectId
+#   _id = ObjectId(karyawan_id)
+  
+#   karyawan_col.update_one(
+#     {"_id" : _id}, {"$addToSet": {"almt": alamat}})
+
+# tambah_alamat_embed("6286a871cedb34fcf2215aab", alamat)
+# ===>
+# _id: ('6286a871cedb34fcf2215aab')
+# first_name: "Wagiman"
+# last_name: "Harjolukito"
+# age: 32
+# alamatss: Array
+# 0
+# Object
+# _id: "6286a871cedb34fcf2215aad"
+# jalan: "Kalamandu Raya"
+# nomer: 25
+# kota:"Madiun"
+# negara: "Indonesia"
+# kode_pos: "55265"
+
+# METODE 2
+# def tambah_alamat_relationship(karyawan_id, alamat):
+#   from bson.objectid import ObjectId
+#   _id = ObjectId(karyawan_id)
+  
+#   alamat = alamat.copy()
+#   alamat["owner_id"] = karyawan_id
+  
+#   alamat_col = pabrik.alamat
+#   alamat_col.insert_one(alamat)
+
+# tambah_alamat_relationship("6286a871cedb34fcf2215aaa", alamat)
+# ===> ada collection baru root dibawah collection dbs
+# _id: ("6286a871cedb34fcf2215aad")
+# jalan: "Jalak Raya"
+# nomer: 15
+# kota: "Magetan"
+# negara: "Indonesia"
+# kode_pos: "52165"
+# owner_id: "6286a871cedb34fcf2215aaa"
+
+
+
+

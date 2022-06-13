@@ -5,3 +5,5 @@ import dns
 app = FastAPI()
 
 app.include_router(todo_api_router)
+
+# uvicorn main:app

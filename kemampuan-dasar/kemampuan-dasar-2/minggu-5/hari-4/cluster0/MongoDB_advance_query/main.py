@@ -532,3 +532,31 @@ print(df.head())
 # 2   b'b\x8ajP<\xbcc\xe0d\x1a\x9a^'      Billy   Jackson    1819-08-05
 # 3   b'b\x8ajP<\xbcc\xe0d\x1a\x9a_'    Natalie  Cardwell    1896-10-02
 # -----------------------------------------------------------------------
+# arrow_table = penerbit.author.find_arrow_all({}, schema=author)
+# print(arrow_table)
+# -----------------------------------------------------------------------
+# pyarrow.Table
+# _id: fixed_size_binary[12]
+# first_name: string
+# last_name: string
+# date_of_birth: timestamp[ms]
+# ----
+# _id: [[628A6A503CBC63E0641A9A5C,628A6A503CBC63E0641A9A5D,628A6A503CBC63E0641A9A5E,628A6A503CBC63E0641A9A5F]]
+# first_name: [["Andrew","Marshall","Billy","Natalie"]]
+# last_name: [["Simson","Edward","Jackson","Cardwell"]]
+# date_of_birth: [[2000-04-24 00:00:00.000,1903-03-14 00:00:00.000,1819-08-05 00:00:00.000,1896-10-02 00:00:00.000]]
+# -----------------------------------------------------------------------
+darrays = penerbit.author.find_numpy_all({}, schema=author)
+print(darrays)
+# -------------------------------------------------------------------------------------------------------------------------
+#                               _id first_name last_name date_of_birth
+# 0  b'b\x8ajP<\xbcc\xe0d\x1a\x9a\\'     Andrew    Simson    2000-04-24
+# 1   b'b\x8ajP<\xbcc\xe0d\x1a\x9a]'   Marshall    Edward    1903-03-14
+# 2   b'b\x8ajP<\xbcc\xe0d\x1a\x9a^'      Billy   Jackson    1819-08-05
+# 3   b'b\x8ajP<\xbcc\xe0d\x1a\x9a_'    Natalie  Cardwell    1896-10-02
+# {'_id': array([b'b\x8ajP<\xbcc\xe0d\x1a\x9a\\', b'b\x8ajP<\xbcc\xe0d\x1a\x9a]',
+#        b'b\x8ajP<\xbcc\xe0d\x1a\x9a^', b'b\x8ajP<\xbcc\xe0d\x1a\x9a_'],
+#       dtype=object), 'first_name': array(['Andrew', 'Marshall', 'Billy', 'Natalie'], dtype='<U8'), 'last_name': array(['Simson', 'Edward', 'Jackson', 'Cardwell'], dtype='<U8'), 'date_of_birth': array(['2000-04-24T00:00:00.000', '1903-03-14T00:00:00.000',
+#        '1819-08-05T00:00:00.000', '1896-10-02T00:00:00.000'],
+#       dtype='datetime64[ms]')}
+# -------------------------------------------------------------------------------------------------------------------------

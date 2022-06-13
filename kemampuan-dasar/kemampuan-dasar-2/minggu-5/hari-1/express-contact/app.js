@@ -84,7 +84,7 @@ app.get('/contact/add', (req, res) => {
     })
 });
 
-// process data contact
+// proses data contact
 app.post('/contact', [
     body('nama').custom((value) => {
         const duplikat = cekDuplikat(value);
@@ -114,6 +114,7 @@ app.post('/contact', [
 // proses delete contact
 app.get('/contact/delete/:nama', (req, res) => {
         const contact = findContact(req.params.nama);
+
         // jika contact tidak ada
         if (!contact) {
             res.status(404);
