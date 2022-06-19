@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}" />
+</head>
+<body>
+    <h1>Add Transaction</h1>
+    <form>
+            <div class="form__fieldset">
+                <label for="date" class="form__label">Date:</label>
+                <input type="date" name="date" id="date" class="form__input" />
+            </div>
+
+            <div class="form__fieldset">
+                <label for="amount" class="form__label">Amount:</label>
+                <input type="number" name="amount" id="amount" class="form__input" />
+            </div>
+
+            <div class="form__fieldset">
+                <label for="account" class="form__label">Account:</label>
+                <select name="account" id="account" class="form__input form__select">
+                    <option value="Checking">Checking</option>
+                    <option value="Savings">Savings</option>
+                    <option value="Checking">Checking</option>
+                    <option value="Investment">Investment</option>
+                </select>
+            </div>
+
+            <div class="form__fieldset">
+                <input class="form__submit form__input" type="submit" value="Add Transaction" />
+            </div>
+        </form>
+    </body>
+</html>
